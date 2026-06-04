@@ -1,0 +1,117 @@
+body {
+    background-color: #FBFBFB;
+    overflow-x: hidden;
+}
+header {
+    background-color: #EF5350;
+    border-radius: 80px;
+    margin: 20px auto auto auto;
+    padding: 5px 56px 5px 6px;
+    width: 55vw;
+    min-width: 791px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 auto;
+}
+.header-logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 50px;
+}
+.nav-item ul {
+    gap: 0;
+}
+.nav-item.dropdown {
+    position: relative;
+}
+.drop-tag {
+    color: #FBFBFB;
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    user-select: none;
+}
+.drop-tag svg {
+    transition: transform 0.3s ease;
+    margin-top: 6px;
+}
+.nav-item.is-open .drop-tag svg {
+    transform: rotate(180deg);
+}
+.drop-menu {
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 100%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: #EF5350;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: max-content;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    flex-direction: column;
+}
+.event-head {
+    left: 120%;
+}
+.apply-head {
+    left: 80%;
+}
+.nav-item.is-open .drop-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.drop-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20%;
+    transform: translateX(-50%); /* 三角形を中央に配置 */
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #EF5350;
+}
+.drop-menu a {
+    display: block;
+    padding: 6px 16px;
+    color: #FBFBFB;
+    text-decoration: none;
+    font-size: 16px;
+}
+.drop-menu li {
+    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+.drop-menu li:last-child {
+    border-bottom: none;
+}
+.header-SNS {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+.header-SNS a {
+    display: flex;
+    align-items: center;
+}
