@@ -1,8 +1,32 @@
 body {
     background-color: #FBFBFB;
     overflow-x: hidden;
+    font-family: "Zen Kaku Gothic New", sans-serif;;
+}
+h1, h2, h3, h4 {
+    margin: 0;
+}
+p {
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    line-height: 33px;
+    margin: 0;
+}
+a {
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    line-height: 33px;
+    color: #EF5350;
+    text-decoration: underline;
+    text-decoration-thickness: 6.5%;
+    text-underline-offset: 19%;
+    margin: 0;
 }
 header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #EF5350;
     border-radius: 80px;
     margin: 20px auto auto auto;
@@ -51,6 +75,9 @@ header {
 .drop-tag svg {
     transition: transform 0.3s ease;
     margin-top: 6px;
+}
+.SNS-sp {
+    display: none;
 }
 .nav-item.is-open .drop-tag svg {
     transform: rotate(180deg);
@@ -114,4 +141,232 @@ header {
 .header-SNS a {
     display: flex;
     align-items: center;
+}
+.content {
+    padding: 0 140px;
+}
+.a-title {
+    display: flex;
+    align-items: baseline;
+    margin-top: 150px;
+}
+.a-title h1 {
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+}
+.a-title h2 {
+    margin-left: 45px;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+}
+.b-title {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 98px 0 102px;
+}
+.b-title svg {
+    margin-left: -145px;
+}
+.b-title h1 {
+    margin-left: -35px;
+    margin-top: 50px;
+    font-size: 35px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+@media (max-width: 768px) {
+p {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+}
+a {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+    text-decoration-thickness: 6.5%;
+    text-underline-offset: 19%;
+}
+header {
+    margin: 15px auto auto auto;
+    padding: 8px 54px 8px 6px;
+    width: 80vw;
+    min-width: 0;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 auto;
+}
+.header-logo {
+    height: 39px;
+    width: 39px;
+    flex-shrink: 0;
+}
+.header-logo svg {
+    height: 36.56px;
+    width: auto;
+}
+.header-nav {
+    flex-grow: 1;
+    margin-left: 20px; /* ロゴとAboutの間の余白（お好みで調整してください） */
+}
+.header-nav ul {
+    gap: 15px;
+}
+.header-nav > ul {
+    width: 100%;
+    justify-content: space-between; /* これで精一杯等間隔に広がります！ */
+}
+.drop-tag {
+    font-size: 14px;
+    gap: 3px;
+}
+.drop-tag svg {
+    margin-top: 6px;
+    height: 3.7px;
+    width: auto;
+}
+.SNS-sp {
+    display: block;
+}
+.SNS-sp li {
+    padding: 0;
+}
+
+.header-SNS svg {
+    display: none;
+}
+.insta-head svg {
+    height: 22px;
+    width: auto;
+    padding: 0;
+}
+.X-head svg {
+    height: 20px;
+    width: auto;
+    padding: 0;
+}
+.youtube-head svg {
+    height: 19px;
+    width: auto;
+    padding: 0;
+}
+.drop-menu {
+    top: calc(100% + 37px);
+    left: 150%;
+    transform: translateX(-50%) translateY(-30px);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: max-content;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.SNS-sp .drop-menu li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* 中央揃えにする場合 */
+    gap: 8px;
+}
+.SNS-sp .drop-menu {
+    padding: 8px;
+}
+.header-nav ul.drop-menu {
+    gap: 0;
+}
+.event-head {
+    left: 180%;
+}
+.apply-head {
+    left: 120%;
+}
+.sp-SNS {
+    left: 90%;
+}
+.nav-item.is-open .drop-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.drop-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20%;
+    transform: translateX(-50%); /* 三角形を中央に配置 */
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #EF5350;
+}
+.SNS-sp .drop-menu::before {
+    left: 30%;
+}
+.drop-menu a {
+    display: block;
+    padding: 3px 10px;
+    color: #FBFBFB;
+    text-decoration: none;
+    font-size: 12px;
+}
+.SNS-sp a {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: auto;
+}
+.drop-menu li {
+    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+.drop-menu li:last-child {
+    border-bottom: none;
+}
+.header-SNS {
+    display: none;
+}
+.header-SNS a {
+    display: flex;
+    align-items: center;
+}
+.content {
+    padding: 0 30px;
+}
+.a-title {
+    margin-top: 112px;
+}
+.a-title h1 {
+    font-size: 50px;
+    letter-spacing: 0.03em;
+}
+.a-title h2 {
+    margin-left: 8px;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+}
+.b-title {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 20px 0 102px;
+}
+.b-title svg {
+    height: 137.27px;
+    width: auto;
+    margin-left: -45px;
+}
+.b-title h1 {
+    margin-left: -39px;
+    margin-top: 38px;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+}
 }

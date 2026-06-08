@@ -10,6 +10,17 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.a-title,
+.b-title {
+  padding: 0 140px;
+}
+.b-title {
+  margin: 100px 0 0px;
+}
+.b-title p {
+  white-space: nowrap;
+}
 .filters { 
   max-width: 1200px;
  }
@@ -17,7 +28,9 @@ body {
   flex: 1;
   margin-top: 50px;
  }
-
+.content {
+  padding: 0;
+}
 /* -----------------------------------
    ★魔法のCSS：チェックボックスをボタン化
 ------------------------------------ */
@@ -137,6 +150,7 @@ body {
   display: flex;
   flex-direction: column; /* 中身を上から下へ縦並びにする */
   height: 100%;
+  border: 1px solid #222222;
 }
 .ais-Hits-item, .ais-InfiniteHits-item {
   padding: 0;
