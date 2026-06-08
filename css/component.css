@@ -177,6 +177,40 @@ header {
     font-weight: 500;
     letter-spacing: 0.06em;
 }
+.color-wipe span {
+    display: inline-block;
+    
+    /* ↓ 親から引っ越してきた背景の設定 ↓ */
+    color: transparent;
+    background-image: linear-gradient(to top, black 33.3%, red 33.3%, red 66.6%, black 66.6%);
+    background-size: 100% 300%;
+    background-position: top;
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 初期状態の角度 */
+    transform: rotate(0deg); 
+}
+/* color-wipeの中のspanタグに対する設定 */
+.color-wipe.is-active span {
+    animation: wipeAndRotate 1.3s ease-in-out forwards;
+}
+
+/* 色の変化と回転を同時に行うアニメーション */
+@keyframes wipeAndRotate {
+    0% {
+        background-position: top; 
+        transform: rotate(0deg);   /* 開始時はまっすぐ */
+    }
+    50% {
+        background-position: center; 
+        transform: rotate(-10deg);  /* 赤くなりながら10度回転 */
+    }
+    100% {
+        background-position: bottom; 
+        transform: rotate(0deg);   /* 黒に戻りながらまっすぐ戻る */
+    }
+}
 @media (max-width: 768px) {
 p {
     font-size: 14px;
