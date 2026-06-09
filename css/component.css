@@ -53,8 +53,6 @@ header {
 }
 .header-nav {
     flex-grow: 1;
-    margin-left: 40px;
-    margin-right: 40px;
 }
 .header-nav ul {
     display: flex;
@@ -65,7 +63,7 @@ header {
 }
 .header-nav > ul {
     width: 100%;
-    justify-content: space-between; /* これで精一杯等間隔に広がります！ */
+    justify-content: space-evenly;
 }
 .nav-item ul {
     gap: 0;
@@ -168,6 +166,7 @@ header {
     display: flex;
     align-items: center;
     gap: 22px;
+    margin-left: 20px;
 }
 .header-SNS a {
     display: flex;
