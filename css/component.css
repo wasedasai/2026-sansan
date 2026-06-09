@@ -34,6 +34,7 @@ header {
     padding: 5px 56px 5px 6px;
     width: 55vw;
     min-width: 791px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
 .header-container {
     display: flex;
@@ -50,12 +51,21 @@ header {
     align-items: center;
     justify-content: center;
 }
+.header-nav {
+    flex-grow: 1;
+    margin-left: 40px;
+    margin-right: 40px;
+}
 .header-nav ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
     gap: 50px;
+}
+.header-nav > ul {
+    width: 100%;
+    justify-content: space-between; /* これで精一杯等間隔に広がります！ */
 }
 .nav-item ul {
     gap: 0;
@@ -100,6 +110,9 @@ header {
     transition: all 0.3s ease;
     flex-direction: column;
 }
+.about-head {
+    left: 60%;
+}
 .event-head {
     left: 120%;
 }
@@ -131,10 +144,25 @@ header {
     font-size: 16px;
 }
 .drop-menu li {
-    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    background-color: #EF5350;
+    transition: 0.1s background-color ease;
+}
+.drop-menu li:hover {
+    background-color: #F0968A;
 }
 .drop-menu li:last-child {
     border-bottom: none;
+}
+.drop-menu li:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* メニューの一番下の項目に、下の角丸をつける */
+.drop-menu li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .header-SNS {
     display: flex;
@@ -229,13 +257,13 @@ a {
 }
 header {
     margin: 15px auto auto auto;
-    padding: 8px 54px 8px 6px;
+    padding: 8px 24px 8px 6px;
     width: 80vw;
     min-width: 0;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin:0 auto;
 }
@@ -250,10 +278,12 @@ header {
 }
 .header-nav {
     flex-grow: 1;
-    margin-left: 20px; /* ロゴとAboutの間の余白（お好みで調整してください） */
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 12px;
 }
 .header-nav ul {
-    gap: 15px;
+    gap: 9px;
 }
 .header-nav > ul {
     width: 100%;
@@ -295,7 +325,7 @@ header {
 }
 .drop-menu {
     top: calc(100% + 30px);
-    left: 150%;
+    left: 120%;
     transform: translateX(-50%) translateY(-38px);
     border-radius: 10px;
     padding: 0;
@@ -320,11 +350,14 @@ header {
 .header-nav ul.drop-menu {
     gap: 0;
 }
+.about-head {
+    left: 70%;
+}
 .event-head {
-    left: 180%;
+    left: 140%;
 }
 .apply-head {
-    left: 120%;
+    left: 90%;
 }
 .sp-SNS {
     left: 90%;
