@@ -1,0 +1,171 @@
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  color: #222222;
+  line-height: 1.8;
+  background-color: #fbfbfb;
+}
+
+/* メインビジュアル */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  background-image: url('hero-bg.jpg'); /* 大隈講堂の写真をここに指定 */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* 斜めの青い背景とタイトル */
+.hero-overlay-blue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(162, 203, 229, 0.85); /* 水色シースルー */
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.3;
+  letter-spacing: 2px;
+}
+
+/* 斜めのオレンジの背景とキャッチコピー */
+.hero-overlay-orange {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 65%;
+  height: 40%;
+  background: rgba(243, 115, 65, 0.9); /* オレンジ色シースルー */
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8%;
+}
+
+.hero-catchphrase {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* コンテンツレイアウト */
+.content-container {
+  max-width: 80%;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+
+
+.info-section {
+  margin-bottom: 50px;
+}
+
+/* SVGロゴ付きの見出しデザイン */
+.section-title {
+  display: flex;
+  align-items: center;  /* ロゴとテキストの縦方向の中央揃え */
+  font-size: 35px;
+  color: #222222;
+  margin-bottom: 15px;
+  font-weight:lighter;
+  letter-spacing: 6%;
+}
+
+/* 差し込まれたSVGロゴのサイズ・余白調整 */
+.title-logo {
+  width: 32px;        /* スクリーンショットの比率に合わせたサイズ */
+  height: auto;
+  margin-right: 12px; /* ロゴと見出しテキストの間の余白 */
+  object-fit: contain;
+}
+
+/* 本文テキストのインデント（ロゴの幅に合わせて配置） */
+.section-text {
+  font-size: 20px;
+  color: #222222;
+  line-height: 33px;
+  letter-spacing: 0.06em;
+}
+
+
+
+
+/* 日時デザイン */
+.datetime-container {
+  padding-left: 35px;
+}
+
+.datetime-row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.date-num {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin-right: 5px;
+}
+
+.day-v, .day-v-sun {
+  font-size: 0.75rem;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-combine-upright: all;
+  margin-right: 20px;
+}
+.day-v { color: #2b6cb0; } /* 土曜の青 */
+.day-v-sun { color: #c53030; } /* 日曜の赤 */
+
+.time-label {
+  font-size: 0.75rem;
+  color: #777;
+  margin-right: 5px;
+}
+
+.time-num {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.arrow {
+  margin: 0 10px;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+/* PDFリスト */
+.pdf-list {
+  list-style: none;
+  padding-left: 35px;
+}
+
+.pdf-list li {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.pdf-list a {
+  color: #e53e3e;
+  text-decoration: underline;
+  margin-left: 5px;
+}
