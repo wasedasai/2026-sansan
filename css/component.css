@@ -1,7 +1,7 @@
 body {
     background-color: #FBFBFB;
     overflow-x: hidden;
-    font-family: "Zen Kaku Gothic New", sans-serif;;
+    font-family: "Zen Kaku Gothic New", sans-serif;
 }
 h1, h2, h3, h4 {
     margin: 0;
@@ -26,6 +26,7 @@ header {
     position: fixed;
     top: 0;
     left: 50%;
+    z-index: 999;
     transform: translateX(-50%);
     background-color: #EF5350;
     border-radius: 80px;
@@ -68,7 +69,7 @@ header {
     font-size: 20px;
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 6px;
     cursor: pointer;
     user-select: none;
 }
@@ -84,7 +85,7 @@ header {
 }
 .drop-menu {
     position: absolute;
-    top: calc(100% + 30px);
+    top: calc(100% + 33px);
     left: 100%;
     transform: translateX(-50%) translateY(-10px);
     background-color: #EF5350;
@@ -113,12 +114,14 @@ header {
 .drop-menu::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -6px; 
     left: 20%;
-    transform: translateX(-50%); /* 三角形を中央に配置 */
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #EF5350;
+    transform: translateX(-50%) scaleX(0.58) rotate(45deg);
+    width: 32px;
+    height: 32px;
+    background-color: #EF5350;
+    border-top-left-radius: 4px; 
+    z-index: -1;
 }
 .drop-menu a {
     display: block;
@@ -291,9 +294,9 @@ header {
     padding: 0;
 }
 .drop-menu {
-    top: calc(100% + 37px);
+    top: calc(100% + 30px);
     left: 150%;
-    transform: translateX(-50%) translateY(-30px);
+    transform: translateX(-50%) translateY(-38px);
     border-radius: 10px;
     padding: 0;
     margin: 0;
@@ -334,12 +337,14 @@ header {
 .drop-menu::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -6px; 
     left: 20%;
-    transform: translateX(-50%); /* 三角形を中央に配置 */
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #EF5350;
+    transform: translateX(-50%) scaleX(0.58) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background-color: #EF5350;
+    border-top-left-radius: 4px; 
+    z-index: -1;
 }
 .SNS-sp .drop-menu::before {
     left: 30%;
@@ -380,11 +385,13 @@ header {
 .a-title h1 {
     font-size: 50px;
     letter-spacing: 0.03em;
+    white-space: nowrap;
 }
 .a-title h2 {
     margin-left: 8px;
     font-size: 16px;
     letter-spacing: 0.03em;
+    white-space: nowrap;
 }
 .b-title {
     display: flex;
