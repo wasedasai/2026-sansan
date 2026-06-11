@@ -2,6 +2,7 @@ body {
     background-color: #FBFBFB;
     overflow-x: hidden;
     font-family: "Zen Kaku Gothic New", sans-serif;
+    margin: 0;
 }
 h1, h2, h3, h4 {
     margin: 0;
@@ -337,7 +338,8 @@ header {
 .sun {
     color: #B02E2D;
 }
-.greeting {
+.greeting,
+.stair {
     transform: translateY(-3px);
     margin-right: 10px;
 }
@@ -428,10 +430,8 @@ header {
 .staffplan {
     padding: 0;
     position: relative;
-    height: 400vh;
 }
 .staffplan {
-    height: 500vh;
     margin-top: 350px;
 }
 .sansanplan h1,
@@ -679,4 +679,664 @@ header {
 }
 .faq-first {
     margin-top: 37px;
+}
+.sp {
+    display: none;
+}
+.pc {
+    display: block;
+}
+@media (max-width: 768px) {
+html {
+    overflow-x: hidden;
+}
+p {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+}
+a {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+    text-decoration-thickness: 6.5%;
+    text-underline-offset: 19%;
+}
+header {
+    margin: 15px auto auto auto;
+    padding: 8px 24px 8px 6px;
+    width: 80vw;
+    min-width: 0;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    margin:0 auto;
+}
+.header-logo {
+    height: 39px;
+    width: 39px;
+    flex-shrink: 0;
+}
+.header-logo svg {
+    height: 36.56px;
+    width: auto;
+}
+.header-nav {
+    flex-grow: 1;
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 12px;
+}
+.header-nav ul {
+    gap: 9px;
+}
+.header-nav > ul {
+    width: 100%;
+    justify-content: space-between; /* これで精一杯等間隔に広がります！ */
+}
+.drop-tag {
+    font-size: 14px;
+    gap: 3px;
+}
+.drop-tag svg {
+    margin-top: 6px;
+    height: 3.7px;
+    width: auto;
+}
+.SNS-sp {
+    display: block;
+}
+.SNS-sp li {
+    padding: 0;
+}
+
+.header-SNS svg {
+    display: none;
+}
+.insta-head svg {
+    height: 22px;
+    width: auto;
+    padding: 0;
+}
+.X-head svg {
+    height: 20px;
+    width: auto;
+    padding: 0;
+}
+.youtube-head svg {
+    height: 19px;
+    width: auto;
+    padding: 0;
+}
+.drop-menu {
+    top: calc(100% + 30px);
+    left: 120%;
+    transform: translateX(-50%) translateY(-38px);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: max-content;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.SNS-sp .drop-menu li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* 中央揃えにする場合 */
+    gap: 8px;
+}
+.SNS-sp .drop-menu {
+    padding: 8px;
+}
+.header-nav ul.drop-menu {
+    gap: 0;
+}
+.about-head {
+    left: 70%;
+}
+.event-head {
+    left: 140%;
+}
+.apply-head {
+    left: 90%;
+}
+.sp-SNS {
+    left: 90%;
+}
+.nav-item.is-open .drop-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.drop-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px; 
+    left: 20%;
+    transform: translateX(-50%) scaleX(0.58) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background-color: #EF5350;
+    border-top-left-radius: 4px; 
+    z-index: -1;
+}
+.SNS-sp .drop-menu::before {
+    left: 30%;
+}
+.drop-menu a {
+    display: block;
+    padding: 3px 10px;
+    color: #FBFBFB;
+    text-decoration: none;
+    font-size: 12px;
+}
+.SNS-sp a {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: auto;
+}
+.drop-menu li {
+    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+.drop-menu li:last-child {
+    border-bottom: none;
+}
+.header-SNS {
+    display: none;
+}
+.header-SNS a {
+    display: flex;
+    align-items: center;
+}
+section {
+    margin-top: 85px;
+    margin-bottom: 35px;
+    padding: 0 30px;
+
+}
+.hero-section {
+    overflow-x: hidden;
+}
+.hero-section-content {
+    position: absolute;
+    z-index: 1;
+    left: 30px;
+    bottom: auto;
+    top: 60px;
+}
+.hero-section-content h1 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: #FBFBFB;
+}
+.countdown-wrapper {
+    position: absolute;
+    bottom: 8px;
+    right: 18px;
+    z-index: 1;
+}
+.countdown-svg {
+    position: absolute;
+    height: 168.2px;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+.countdown-contents {
+    position: relative;
+    top: 55%;
+    left: 36%;
+    transform: translate(-57%, -30%);
+    text-align: center;
+    z-index: 3;
+}
+.countdown-contents p {
+    font-size: 12px;
+    letter-spacing: 0;
+    color: #EF5350;
+    line-height: auto;
+}
+.timer-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+.day-before,
+.day-after {
+    color: #EF5350;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+.number {
+    font-size: 30px;
+    color: #EF5350;
+    letter-spacing: 0;
+    font-weight: bold;
+    margin: 0 3px;
+}
+.right-sai {
+    position: sticky;
+    top: 80vh;
+    display: block;
+    width: 80px;
+    margin-left: auto;
+    z-index: 999;
+    transform: translateX(10px);
+}
+.right-sai img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.content {
+    transform: translateY(-150px);
+}
+.content h1 {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    margin-bottom: 34px;
+    font-weight: 500;
+}
+.news {
+    width: auto;
+    padding: 0 30px;
+    padding-top: 138px;
+}
+.speaker {
+    transform: translateY(3px);
+    margin-right: 5px;
+    width: 25px;
+}
+.news-topsvg {
+    position: absolute;
+    top: 0;
+    left: 15vw;
+    z-index: -1;
+    height: 172px;
+}
+.news-leftsvg {
+    width: 327px;
+    left: -30px;
+    bottom: -100px;
+    z-index: -1;
+}
+.news-container {
+    min-width: 0px;
+    width: 100%;
+}
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #222222;
+}
+.news-item {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 15px 11px 15px 5px;
+    border-bottom: 1px solid #222222;
+}
+.news-date {
+    width: 43px;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    margin-right: 0;
+}
+.month {
+    margin: 1px;
+}
+.period {
+    margin: 1px;
+}
+.theday {
+    font-size: 5px;
+    transform-origin: center center;
+    display: inline-block;
+    transform: rotate(90deg) translateX(-3px);
+    margin-left: -3px;
+}
+.greeting {
+    width: 25px;
+    transform: translateY(-1px);
+    margin-right: 8px;
+}
+.takakisan {
+    font-size: 16px;
+    letter-spacing: 0.03em;
+}
+.represent-greet .top-text {
+    margin-bottom: 56px;
+}
+.greeting-text {
+    padding: 33px 30px;
+    transform: translateX(-30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+.greeting-text span {
+    font-size: 23px;
+    line-height: auto;
+}
+.sp-greetbox {
+    width: 100vw;
+    aspect-ratio: 3 / 2.1; /* ここで縦横比を指定します */
+    overflow: hidden;
+    transform: translateY(-33px);
+}
+.greeting-text  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 5%;
+    transform: translate(0px, 0px);
+    margin-left: 0px;
+    transform: scale(1.3);
+}
+.stair {
+    height: 14.58px;
+    width: auto;
+    transform: translateY(3px);
+}
+.flow {
+    position: relative;
+    margin-top: 36px;
+}
+.flow-lwftup {
+    position: absolute;
+    width: 266px;
+    top: -85px;
+    left: 0;
+    z-index: -1;
+}
+.flow-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+}
+.step {
+    border: 3px solid #EF5350;
+    width: auto;
+    padding: 18px 21px 20px;
+    border-radius: 20px;
+}
+.step h2 {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    line-height: auto;
+    color: #EF5350;
+    margin-bottom: 23px;
+    margin-right: 10px;
+}
+.sp-flow {
+    display: flex;
+    align-items: baseline;
+}
+.step span {
+    font-size: 25px;
+    letter-spacing: 0;
+}
+.step h3 {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    line-height: auto;
+    font-weight: 500;
+    height: auto;
+    min-height: 0;
+    line-height: 0;
+    min-height: 0;
+}
+.arrow {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin: -8px;
+}
+.arrow img {
+    transform: translateX(0px) translateY(2px) rotate(90deg);
+
+}
+.homesvg {
+    height: 20.83px;
+    transform: translateY(4px);
+    margin-right: 7px;
+}
+.sansanplan,
+.staffplan {
+    height: auto !important;
+    margin-top: 85px;
+    padding: 0;
+    padding: 0 30px;
+}
+.sansanplan h1,
+.staffplan h1 {
+    margin-left: 0;
+}
+.sticky-wrapper,
+.sticky-wrapper2 {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+}
+.scroll-content,
+.scroll-content2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  transform: none !important;
+}
+
+/* 4. 丸いアイテムのデザイン */
+.circle-item {
+  position: relative;
+  width: calc(50% - 7.5px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+.circle-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7); /* 画像を少し暗くして文字を見やすく */
+}
+.circle-item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FBFBFB;
+  font-weight: 500;
+  font-size:14px;
+  letter-spacing: 0.03em;
+  line-height: 20px;
+  white-space: normal;
+  text-align: center;
+  width: 100px;
+}
+.themesong {
+    margin-top: 85px;
+    margin-bottom: 0;
+    position: relative;
+}
+.song-container {
+    display: flex;
+    flex-direction: column;
+}
+.sp-song {
+    width: auto;
+}
+.song-container img {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    align-self: flex-start;
+}
+.song-text {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+.song-text span {
+    font-size: 14px;
+}
+.song-detail {
+    width: fit-content;
+    align-items: center;
+    background-color: #FF9169;
+    display: flex;
+    justify-content: center;
+    padding: 4px 11px 4px 13px;
+    font-size:14px;
+    color: #FBFBFB;
+    border-radius: 5px;
+    align-self: flex-end;
+    transition: 0.2s background-color ease;
+    margin-top: 11px;
+}
+.song-detail:hover {
+    background-color: #EF5350;
+}
+.song-detail img {
+    margin-left: 7px;
+    margin-right: 0;
+    height: 9px;
+    width: auto;
+    align-self: center;
+    transform: translateY(1px);
+}
+.song-right {
+    position: absolute;
+    height: 583px;
+    width: auto;
+    right: 0;
+    top: 150px;
+    z-index: -1;
+}
+.note {
+    font-size: 10px;
+    color: #222222;
+}
+.faqsvg {
+    height: 21.88px;
+    transform: translateY(6px);
+    margin-right: 7px;
+}
+.faq-item {
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 500px; 
+    margin-bottom: 13px;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    background-color: #EF5350;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+.faq-label {
+    display: flex;
+    align-items: center; 
+    gap: 16px;
+    flex: 1;
+}
+.faq-icon-q {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background-color: #FBFBFB;
+    color: #222222;
+    border-radius: 40%;
+    font-size: 16px;
+    position: relative;
+}
+
+.faq-icon-q::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #FBFBFB;
+    border-radius: 50%;
+}
+
+.faq-label p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+.faq-answer-inner {
+    display: flex;
+    align-items: flex-start; 
+    gap: 16px;
+    margin-top: 3px;
+    padding: 24px 20px;
+    background-color: #FBFBFB;
+}
+.faq-icon-a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background-color: #EF5350;
+    color: #FBFBFB;
+    border-radius: 40%; 
+    font-size: 18px;
+    position: relative;
+}
+.faq-icon-a::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #f25f55;
+    border-radius: 50%;
+}
+.faq-answer-inner p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    color: #222222;
+    padding-top: 4px; 
+}
+.faq-first {
+    margin-top: 37px;
+}
+.sp {
+    display: block;
+}
+.pc {
+    display: none;
+}
 }

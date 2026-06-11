@@ -22,80 +22,86 @@ const updateCountdown = () => {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-window.addEventListener('scroll', () => {
+// --- 目標日時等のコードはそのまま ---
+
+// ===== 横スクロール（参加団体・参加者企画） =====
+const setupScroll1 = () => {
   const section = document.querySelector('.sansanplan');
   const stickyWrapper = document.querySelector('.sticky-wrapper');
   const scrollContent = document.querySelector('.scroll-content');
 
   if (!section || !stickyWrapper || !scrollContent) return;
 
-  // 1. セクション全体の大きさと画面上の位置をブラウザから直接取得
-  const rect = section.getBoundingClientRect();
-  
-  // 2. 固定中の要素（sticky-wrapper）の高さ
-  const stickyHeight = stickyWrapper.offsetHeight;
-  
-  // 3. 【重要】実際に「画面に固定されて横スクロールしている期間」の全体の長さを計算
-  const totalScrollDistance = rect.height - stickyHeight;
+  // 1. 横に動かす中身の「本当の幅」を取得
+  const contentWidth = scrollContent.scrollWidth;
+  // 2. 画面の幅を取得
+  const windowWidth = window.innerWidth;
+  // 3. 【重要】親セクションの高さを、「横に動かす距離 ＋ 画面の高さ」に設定
+  // こうすることで、横スクロールが終わるのと同時に縦セクションも終わります。
+  section.style.height = `${(contentWidth - windowWidth) + window.innerHeight}px`;
 
-  const buffer = 150;
-  // 4. 【重要】現在の固定期間のスクロール量（固定が始まった瞬間を0とする）
-  // 画面上部の固定位置（top: 220px）を基準に、どれだけセクションが上に通り過ぎたか
-  const currentScrollProgress = -rect.top + 500;
-
-  // 横に動かせる最大幅
-  const contentWidth = scrollContent.scrollWidth - window.innerWidth;
-
-  if (currentScrollProgress >= 0 && currentScrollProgress <= totalScrollDistance) {
-    // 完全に固定期間中のとき：スクロールの比率（0〜1）を正確に計算
-    const scrollRatio = currentScrollProgress / totalScrollDistance;
-    const moveX = scrollRatio * contentWidth;
+  // スクロールイベント
+  const handleScroll = () => {
+    const rect = section.getBoundingClientRect();
+    const stickyHeight = stickyWrapper.offsetHeight;
     
-    scrollContent.style.transform = `translateX(-${moveX}px)`;
-  } else if (currentScrollProgress < 0) {
-    // まだ固定位置に達していない、または上に戻りきったとき
-    scrollContent.style.transform = 'translateX(0px)';
-  } else if (currentScrollProgress > totalScrollDistance) {
-    // 固定期間が終わり、下に通り過ぎたとき
-    scrollContent.style.transform = `translateX(-${contentWidth}px)`;
-  }
-});
+    // 【修正点】固定位置をスマホかPCかで分ける
+    const stickyOffset = windowWidth <= 768 ? 200 : 500;
 
-window.addEventListener('scroll', () => {
+    const totalScrollDistance = rect.height - window.innerHeight; // 高さを合わせているので計算が変わります
+    const currentScrollProgress = -rect.top + stickyOffset;
+
+    if (currentScrollProgress >= 0 && currentScrollProgress <= totalScrollDistance) {
+      scrollContent.style.transform = `translateX(-${currentScrollProgress}px)`; // 比率ではなくそのままpxで動かす
+    } else if (currentScrollProgress < 0) {
+      scrollContent.style.transform = 'translateX(0px)';
+    } else if (currentScrollProgress > totalScrollDistance) {
+      scrollContent.style.transform = `translateX(-${totalScrollDistance}px)`;
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+};
+
+// ===== 横スクロール（運営スタッフ企画） =====
+// ※ 上記と全く同じ構造で、クラス名だけ2用のものに変えます
+const setupScroll2 = () => {
   const section = document.querySelector('.staffplan');
   const stickyWrapper = document.querySelector('.sticky-wrapper2');
   const scrollContent = document.querySelector('.scroll-content2');
 
   if (!section || !stickyWrapper || !scrollContent) return;
 
-  // 1. セクション全体の大きさと画面上の位置をブラウザから直接取得
-  const rect = section.getBoundingClientRect();
-  
-  // 2. 固定中の要素（sticky-wrapper）の高さ
-  const stickyHeight = stickyWrapper.offsetHeight;
-  
-  // 3. 【重要】実際に「画面に固定されて横スクロールしている期間」の全体の長さを計算
-  const totalScrollDistance = rect.height - stickyHeight;
+  const contentWidth = scrollContent.scrollWidth;
+  const windowWidth = window.innerWidth;
+  section.style.height = `${(contentWidth - windowWidth) + window.innerHeight}px`;
 
-  const buffer = 150;
-  // 4. 【重要】現在の固定期間のスクロール量（固定が始まった瞬間を0とする）
-  // 画面上部の固定位置（top: 220px）を基準に、どれだけセクションが上に通り過ぎたか
-  const currentScrollProgress = -rect.top + 500;
-
-  // 横に動かせる最大幅
-  const contentWidth = scrollContent.scrollWidth - window.innerWidth;
-
-  if (currentScrollProgress >= 0 && currentScrollProgress <= totalScrollDistance) {
-    // 完全に固定期間中のとき：スクロールの比率（0〜1）を正確に計算
-    const scrollRatio = currentScrollProgress / totalScrollDistance;
-    const moveX = scrollRatio * contentWidth;
+  const handleScroll = () => {
+    const rect = section.getBoundingClientRect();
     
-    scrollContent.style.transform = `translateX(-${moveX}px)`;
-  } else if (currentScrollProgress < 0) {
-    // まだ固定位置に達していない、または上に戻りきったとき
-    scrollContent.style.transform = 'translateX(0px)';
-  } else if (currentScrollProgress > totalScrollDistance) {
-    // 固定期間が終わり、下に通り過ぎたとき
-    scrollContent.style.transform = `translateX(-${contentWidth}px)`;
-  }
+    const stickyOffset = windowWidth <= 768 ? 400 : 500;
+
+    const totalScrollDistance = rect.height - window.innerHeight; 
+    const currentScrollProgress = -rect.top + stickyOffset;
+
+    if (currentScrollProgress >= 0 && currentScrollProgress <= totalScrollDistance) {
+      scrollContent.style.transform = `translateX(-${currentScrollProgress}px)`;
+    } else if (currentScrollProgress < 0) {
+      scrollContent.style.transform = 'translateX(0px)';
+    } else if (currentScrollProgress > totalScrollDistance) {
+      scrollContent.style.transform = `translateX(-${totalScrollDistance}px)`;
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+};
+
+// 実行
+setupScroll1();
+setupScroll2();
+
+// 画面サイズが変わった時に高さを再計算する
+window.addEventListener('resize', () => {
+    setupScroll1();
+    setupScroll2();
 });
