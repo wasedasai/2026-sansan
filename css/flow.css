@@ -56,8 +56,6 @@
     margin-bottom: 80px;
     color: #333333;
 }
-
-/* 頭文字の赤色 */
 .accent-red {
     color: #EF5350;
     font-size: 40px;
@@ -72,8 +70,8 @@
 }
 .target-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列で並べる */
-    gap: 16px 40px; /* 上下16px、左右40pxの隙間 */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px 40px; 
 }
 .target-btn {
     display: flex;
@@ -102,26 +100,23 @@
     position: relative;
     border: 3px solid #EF5350;
     border-radius: 24px;
-    background-color: #FFFFFF;
+    background-color: #fbfbfb;
     padding: 50px 45px 45px;
     margin-top: 40px;
     box-sizing: border-box;
 }
 
-/* step1 の吹き出し */
 .step-badge {
     position: absolute;
-    top: -24px; /* 枠線の上に少し飛び出させる */
-    left: 45px;
+    top: -24px; 
+    left: 43px;
     background-color: #EF5350;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 6px 24px;
+    color: #fbfbfb;
+    font-size: 20px;
+    padding: 1px 37px;
     border-radius: 16px;
     letter-spacing: 0.05em;
 }
-/* 吹き出しのチョボ（三角） */
 .step-badge::after {
     content: "";
     position: absolute;
@@ -132,11 +127,10 @@
     border-top: 7px solid #EF5350;
 }
 .step-num {
-    font-size: 24px;
-    margin-left: 4px;
+    font-size: 35px;
+    margin-left: 2px;
 }
 
-/* 中のタイトルと文章 */
 .step-main-title {
     font-size: 32px;
     font-weight: 500;
