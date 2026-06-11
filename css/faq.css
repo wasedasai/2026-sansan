@@ -171,7 +171,6 @@ strong {
     overflow: hidden;
     margin-bottom: 12px;
 }
-
 .faq-question {
     display: flex;
     align-items: center;
@@ -201,7 +200,6 @@ strong {
     font-size: 16px;
     position: relative;
 }
-
 .faq-icon-q::after {
     content: "";
     position: absolute;
@@ -213,13 +211,11 @@ strong {
     background-color: #FBFBFB;
     border-radius: 40%;
 }
-
 .faq-label p {
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
 }
-
 .faq-arrow {
     display: flex;
     align-items: center;
