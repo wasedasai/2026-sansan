@@ -1,0 +1,327 @@
+
+.flow-box {
+    border: 5px solid #EF5350; 
+    border-radius: 16px;      
+    background-color: #fbfbfb; 
+    padding: 45px 45px;      
+    margin: 40px auto 40px 0;    
+    width: 70%;
+    box-sizing: border-box;
+}
+.flow-link {
+  display: flex;
+  align-items: center; 
+  gap: 24px;          
+  text-decoration: none;       
+  color: #222222;                  
+  text-decoration-thickness: auto; 
+  text-underline-offset: auto;    
+}
+.flow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+}
+.flow-item {
+    display: flex;
+    align-items: center; 
+    gap: 24px;        
+}
+.flow-icon {
+    width: auto;
+    height: 80px; 
+    flex-shrink: 0;
+}
+
+.flow-text {
+    font-size: 35px;
+    color: #222222;
+    letter-spacing: 0.05em;
+}
+
+.flow-note {
+    font-size: 20px; 
+    color: #222222;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.step-section {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    color: #333333;
+}
+
+/* 頭文字の赤色 */
+.accent-red {
+    color: #EF5350;
+    font-size: 40px;
+}
+.target-planning {
+    margin-bottom: 80px;
+}
+.target-title {
+    font-size: 20px;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+}
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列で並べる */
+    gap: 16px 40px; /* 上下16px、左右40pxの隙間 */
+}
+.target-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    background-color: #fbfbfb;
+    border: 2px solid #EF5350;
+    border-radius: 10px;
+    color: #222222;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none; 
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+.target-btn:hover {
+    background-color: #EF5350;
+    color: #fbfbfb;
+    transform: translateY(-2px);
+}
+
+.step-box {
+    position: relative;
+    border: 3px solid #EF5350;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    padding: 50px 45px 45px;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+/* step1 の吹き出し */
+.step-badge {
+    position: absolute;
+    top: -24px; /* 枠線の上に少し飛び出させる */
+    left: 45px;
+    background-color: #EF5350;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 24px;
+    border-radius: 16px;
+    letter-spacing: 0.05em;
+}
+/* 吹き出しのチョボ（三角） */
+.step-badge::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 25px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid #EF5350;
+}
+.step-num {
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+/* 中のタイトルと文章 */
+.step-main-title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+}
+.step-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px !important;
+}
+/* 文中のリンク（赤文字＋下線） */
+.inline-link {
+    color: #EF5350 !important;
+    font-size: 18px;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+}
+
+/* ------------------------------------------
+   受付期間エリア（アンダーラインの再現）
+   ------------------------------------------ */
+.period-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    width: max-content;
+    /* 下の黒いアンダーライン */
+    border-bottom: 3px solid #333333;
+    padding-bottom: 4px;
+}
+.period-label-wrap {
+    position: relative;
+    padding-right: 15px;
+}
+/* 斜めのカギ線の再現 */
+.period-label-wrap::after {
+    content: "";
+    position: absolute;
+    right: -2px;
+    bottom: -7px;
+    width: 20px;
+    height: 3px;
+    background-color: #333333;
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
+}
+.period-label {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* 日時テキスト */
+.period-time {
+    display: flex;
+    align-items: baseline;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* 数字が綺麗に見えるゴシック */
+}
+.date-num {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+}
+.time-num {
+    font-size: 42px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+/* 曜日（縦書きの再現） */
+.day-sign {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid #333333;
+    line-height: 1.1;
+    padding: 1px 2px;
+    margin: 0 4px;
+    transform: scale(0.85) translateY(-5px); /* 位置とサイズ微調整 */
+    writing-mode: vertical-rl; /* 縦書きにする */
+}
+.arrow-sign {
+    font-size: 28px;
+    margin: 0 12px;
+    color: #333333;
+}
+
+@media screen and (max-width: 768px) {
+.flow-box {
+    border-width: 2px;    
+    border-radius: 12px;
+    padding: 24px 20px;  
+    margin: 24px auto;
+    width: 100%;
+}
+.flow-list {
+    margin-bottom: 24px;
+    gap: 16px;
+}
+.flow-item {
+    gap: 14px; /* アイコンと文字の隙間を縮小 */
+}
+.flow-icon {
+    height: 55px; 
+}
+.flow-text {
+    font-size: 18px; 
+}
+.flow-note{
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* --- 追加分：スマホ対応 --- */
+  .target-grid {
+      grid-template-columns: 1fr; /* 縦1列にする */
+      gap: 12px;
+  }
+  .target-btn {
+      font-size: 15px;
+      height: 40px;
+  }
+  .target-planning {
+      margin-bottom: 50px;
+  }
+  
+  .step-box {
+      border-width: 2px;
+      padding: 40px 20px 24px;
+      border-radius: 16px;
+  }
+  .step-badge {
+      font-size: 13px;
+      padding: 4px 16px;
+      top: -18px;
+      left: 20px;
+  }
+  .step-num {
+      font-size: 18px;
+  }
+  .step-main-title {
+      font-size: 20px;
+      margin-bottom: 16px;
+  }
+  .step-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 24px !important;
+  }
+  .inline-link {
+      font-size: 14px;
+  }
+  
+  /* スマホでの日時エリアの折り返し */
+  .period-area {
+      display: block; /* 横並びを解除して縦に並べる */
+      width: 100%;
+      border-bottom: none;
+  }
+  .period-label-wrap {
+      border-bottom: 2px solid #333333;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+      display: inline-block;
+  }
+  .period-label-wrap::after {
+      display: none; /* スマホでは斜め線を消してシンプルに */
+  }
+  .period-label {
+      font-size: 14px;
+  }
+  .period-time {
+      flex-wrap: wrap; /* 画面幅に合わせて自動で折り返す */
+      align-items: center;
+  }
+  .date-num {
+      font-size: 32px;
+  }
+  .time-num {
+      font-size: 28px;
+  }
+  .arrow-sign {
+      font-size: 20px;
+      margin: 0 6px;
+      width: 100%; /* スマホでは矢印のところで改行させる */
+      margin-top: 4px;
+      margin-bottom: 4px;
+  }
+}
