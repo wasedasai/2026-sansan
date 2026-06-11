@@ -339,7 +339,7 @@ header {
 }
 .greeting {
     transform: translateY(-3px);
-    margin-right: 3px;
+    margin-right: 10px;
 }
 .takakisan {
     font-size: 25px;
@@ -422,7 +422,7 @@ header {
 }
 .homesvg {
     transform: translateY(4px);
-    margin-right: 5px;
+    margin-right: 10px;
 }
 .sansanplan,
 .staffplan {
@@ -546,6 +546,7 @@ header {
 }
 .faqsvg {
     transform: translateY(6px);
+    margin-right: 8px;
 }
 .faq-item{
     margin-bottom: 25px;
