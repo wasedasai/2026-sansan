@@ -1,5 +1,5 @@
 .saisho{
-    margin-top: 100px;
+    margin-top: 70px;
     margin-bottom: 50px;
 }
 .kikaku-grid {
@@ -55,8 +55,17 @@
   height: 14px; 
   width: auto;
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .kikaku-grid {
+    grid-template-columns: 1fr; 
+  } 
 
+}
 @media screen and (max-width: 768px) {
+  .saisho{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
   .kikaku-grid {
     grid-template-columns: 1fr; 
   }  
