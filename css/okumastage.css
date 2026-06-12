@@ -13,7 +13,7 @@
   background-position: center;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.8s ease-out;
+  transition: opacity 0.4s ease-out;
 }
 
 .hero-section.is-active {
@@ -31,7 +31,7 @@
   background-repeat: no-repeat;
   filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.2));
   opacity: 0;
-  transition: opacity 0.7s ease-out;
+  transition: opacity 0.1s ease-out;
 }
 
 .hero-overlay-orange {
@@ -45,7 +45,7 @@
   background-repeat: no-repeat;
   filter: drop-shadow(3px -3px 4px rgba(0, 0, 0, 0.25));
   opacity: 0;
-  transition: opacity 0.7s ease-out;
+  transition: opacity 0.1s ease-out;
 }
 
 .hero-overlay-blue.is-animated,
