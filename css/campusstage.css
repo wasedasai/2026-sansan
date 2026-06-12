@@ -1,0 +1,135 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/campusstage/campusstage.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+
+.info-list {
+  list-style: none; 
+  margin: 45px 0 0 0;
+  padding: 0;
+}
+
+
+.info-list li {
+  position: relative;
+  padding-left: 1.2em; 
+  font-size: 20px;
+  color: #222222;
+  line-height: 33px;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px; 
+}
+
+.info-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.stage-block {
+  margin-top: 70px; 
+}
+
+
+.stage-subtitle {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 20px; 
+  font-weight: 500;   
+  color: #222222;
+  margin: 0 0 25px 0;  
+  letter-spacing: 0.06em;
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .info-list {
+    list-style: none; 
+    margin: 40px 0 0 0;
+    padding: 0;
+    }
+
+
+    .info-list li {
+    position: relative;
+    padding-left: 1.2em; 
+    font-size: 17px;
+    color: #222222;
+    line-height: 33px;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px; 
+    }
+
+    .info-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    top: 0;
+    }
+
+
+    .stage-block {
+    margin-top: 40px; 
+    }
+
+
+    .stage-subtitle {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 17px; 
+    font-weight: 500;   
+    color: #222222;
+    margin: 0 0 15px 0;  
+    letter-spacing: 0.06em;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .info-list {
+    list-style: none; 
+    margin: 45px 0 0 0;
+    padding: 0;
+    }
+
+
+    .info-list li {
+    position: relative;
+    padding-left: 1.2em; 
+    font-size: 14px;
+    color: #222222;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px; 
+    }
+
+    .info-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    top: 0;
+    }
+
+
+    .stage-block {
+    margin-top: 40px; 
+    }
+
+
+    .stage-subtitle {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 18px; 
+    font-weight: 500;   
+    color: #222222;
+    margin: 0 0 15px 0;  
+    letter-spacing: 0.03em;
+    }
+}
