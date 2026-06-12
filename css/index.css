@@ -686,7 +686,7 @@ header {
 .pc {
     display: block;
 }
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
 header {
     margin: 15px auto auto auto;
     padding: 8px 24px 8px 6px;
