@@ -686,6 +686,346 @@ header {
 .pc {
     display: block;
 }
+@media (max-width: 1024px) {
+header {
+    margin: 15px auto auto auto;
+    padding: 8px 24px 8px 6px;
+    width: 80vw;
+    min-width: 0;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+section {
+    margin-top: 85px;
+    margin-bottom: 35px;
+    padding: 0 30px;
+
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    margin:0 auto;
+}
+.header-logo {
+    height: 39px;
+    width: 39px;
+    flex-shrink: 0;
+}
+.header-logo svg {
+    height: 36.56px;
+    width: auto;
+}
+.header-nav {
+    flex-grow: 1;
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 12px;
+}
+.header-nav ul {
+    gap: 9px;
+}
+.header-nav > ul {
+    width: 100%;
+    justify-content: space-between; /* これで精一杯等間隔に広がります！ */
+}
+.drop-tag {
+    font-size: 14px;
+    gap: 3px;
+}
+.drop-tag svg {
+    margin-top: 6px;
+    height: 3.7px;
+    width: auto;
+}
+.SNS-sp {
+    display: block;
+}
+.SNS-sp li {
+    padding: 0;
+}
+
+.header-SNS svg {
+    display: none;
+}
+.insta-head svg {
+    height: 22px;
+    width: auto;
+    padding: 0;
+}
+.X-head svg {
+    height: 20px;
+    width: auto;
+    padding: 0;
+}
+.youtube-head svg {
+    height: 19px;
+    width: auto;
+    padding: 0;
+}
+.drop-menu {
+    top: calc(100% + 30px);
+    left: 120%;
+    transform: translateX(-50%) translateY(-38px);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: max-content;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.SNS-sp .drop-menu li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* 中央揃えにする場合 */
+    gap: 8px;
+}
+.SNS-sp .drop-menu {
+    padding: 8px;
+}
+.header-nav ul.drop-menu {
+    gap: 0;
+}
+.about-head {
+    left: 70%;
+}
+.event-head {
+    left: 140%;
+}
+.apply-head {
+    left: 90%;
+}
+.sp-SNS {
+    left: 90%;
+}
+.nav-item.is-open .drop-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.drop-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px; 
+    left: 20%;
+    transform: translateX(-50%) scaleX(0.58) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background-color: #EF5350;
+    border-top-left-radius: 4px; 
+    z-index: -1;
+}
+.SNS-sp .drop-menu::before {
+    left: 30%;
+}
+.drop-menu a {
+    display: block;
+    padding: 3px 10px;
+    color: #FBFBFB;
+    text-decoration: none;
+    font-size: 12px;
+}
+.SNS-sp a {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: auto;
+}
+.drop-menu li {
+    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+.drop-menu li:last-child {
+    border-bottom: none;
+}
+.header-SNS {
+    display: none;
+}
+.header-SNS a {
+    display: flex;
+    align-items: center;
+}
+.content {
+    transform: translateY(-270px);
+}
+.greeting-text span {
+    font-size: 30px;
+    line-height: auto;
+}
+.news {
+    width: auto;
+    padding: 0 30px;
+    padding-top: 138px;
+}
+.speaker {
+    transform: translateY(3px);
+    margin-right: 5px;
+    width: 25px;
+}
+.news-topsvg {
+    position: absolute;
+    top: 0;
+    left: 15vw;
+    z-index: -1;
+    height: 172px;
+}
+.news-leftsvg {
+    width: 327px;
+    left: -30px;
+    bottom: -100px;
+    z-index: -1;
+}
+.news-container {
+    min-width: 0px;
+    width: 100%;
+}
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #222222;
+}
+.news-item {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 15px 11px 15px 5px;
+    border-bottom: 1px solid #222222;
+}
+.news-date {
+    width: 44px;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    margin-right: 0;
+}
+.month {
+    margin: 1px;
+}
+.period {
+    margin: 1px;
+}
+.theday {
+    font-size: 5px;
+    transform-origin: center center;
+    display: inline-block;
+    transform: rotate(90deg) translateX(-3px);
+    margin-left: -3px;
+}
+.flow {
+    position: relative;
+    margin-top: 36px;
+}
+.flow-lwftup {
+    position: absolute;
+    width: 266px;
+    top: -85px;
+    left: 0;
+    z-index: -1;
+}
+.flow-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+}
+.step {
+    border: 3px solid #EF5350;
+    width: auto;
+    padding: 18px 21px 20px;
+    border-radius: 20px;
+}
+.step h2 {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    line-height: auto;
+    color: #EF5350;
+    margin-bottom: 23px;
+    margin-right: 10px;
+}
+.sp-flow {
+    display: flex;
+    align-items: baseline;
+}
+.step span {
+    font-size: 25px;
+    letter-spacing: 0;
+}
+.step h3 {
+    font-size: 28px;
+    letter-spacing: 0.03em;
+    line-height: auto;
+    font-weight: 500;
+    height: auto;
+    min-height: 0;
+    line-height: 0;
+    min-height: 0;
+}
+.arrow {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin: -8px;
+}
+.arrow img {
+    transform: translateX(0px) translateY(2px) rotate(90deg);
+
+}
+.sansanplan,
+.staffplan {
+    height: auto !important;
+    margin-top: 85px;
+    padding: 0;
+    padding: 0 30px;
+}
+.sansanplan h1,
+.staffplan h1 {
+    margin-left: 0;
+}
+.sticky-wrapper,
+.sticky-wrapper2 {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+}
+.scroll-content,
+.scroll-content2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  transform: none !important;
+}
+
+/* 4. 丸いアイテムのデザイン */
+.circle-item {
+  position: relative;
+  width: calc(50% - 7.5px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+.circle-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7); /* 画像を少し暗くして文字を見やすく */
+}
+.circle-item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FBFBFB;
+  font-weight: 500;
+  font-size:25px;
+  letter-spacing: 0.03em;
+  line-height: 20px;
+  white-space: normal;
+  text-align: center;
+  width: 250px;
+}
+}
 @media (max-width: 768px) {
 p {
     font-size: 14px;
@@ -985,7 +1325,7 @@ section {
     border-bottom: 1px solid #222222;
 }
 .news-date {
-    width: 43px;
+    width: 44px;
     font-size: 15px;
     letter-spacing: 0.06em;
     margin-right: 0;
