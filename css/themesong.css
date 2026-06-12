@@ -119,6 +119,7 @@ p.sheet-title {
     border-radius: 20px;
     margin: 0;
     font-size: 24px;
+    margin-left: -19px;
 }
 .sheet-content {
     margin-top: 15px;
@@ -291,6 +292,7 @@ p.sheet-title {
     border-radius: 20px;
     margin: 0;
     font-size: 20px;
+    margin-left: -20px;
 }
 .step-icon {
     display: inline-flex;
@@ -428,7 +430,7 @@ p.description-text {
         font-size: 13px;
         padding: 4px 16px;
         top: -15px;
-        left: 5px;
+        left: 22px;
     }
 
     p.content-item {
