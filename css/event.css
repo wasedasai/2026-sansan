@@ -119,11 +119,11 @@ body {
   border: none !important;                 /* デフォルトの枠線を消す */
   border-radius: 0 !important;             /* 角丸をリセット */
   
-  color: #ff4d4f !important;               /* 最初から赤文字！ */
-  border-bottom: 1.5px solid #ff4d4f !important; /* 最初から赤い下線！ */
+  color: #EF5350 !important;               /* 最初から赤文字！ */
+  border-bottom: 1.5px solid #EF5350 !important; /* 最初から赤い下線！ */
   
-  padding: 0 0 4px 0 !important;           /* 文字と下線の隙間 */
-  font-size: 14px !important;              /* 文字サイズ（お好みで変更OK） */
+  padding: 0 0 0px 0 !important;           /* 文字と下線の隙間 */
+  font-size: 20px !important;              /* 文字サイズ（お好みで変更OK） */
   font-weight: normal !important;
   cursor: pointer !important;              /* 最初から指マーク（矢印にしたい場合は default に） */
   opacity: 1 !important;                   /* 最初から薄くならずに100%の濃さ */
@@ -151,6 +151,8 @@ body {
   flex-direction: column; /* 中身を上から下へ縦並びにする */
   height: 100%;
   border: 1px solid #222222;
+  text-decoration: none;
+  color: #222222;
 }
 .ais-Hits-item, .ais-InfiniteHits-item {
   padding: 0;

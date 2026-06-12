@@ -139,7 +139,7 @@ search.addWidgets([
     templates: {
       // {{変数名}} にExcelの列名を入れるとデータが表示されます
       item: `
-        <div class="hit-card">
+        <a href="{{pages}}" class="hit-card">
           <img src="{{img}}" alt="{{title}}" class="hit-image" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
           
           <div class="hit-content">
@@ -167,7 +167,7 @@ search.addWidgets([
               {{title}}
             </h3>
           </div>
-        </div>
+        </a>
       `,
       
     },

@@ -505,6 +505,9 @@ header {
     flex-direction: column;
     justify-content: space-between;
 }
+.space {
+    height: 59px;
+}
 .song-text span {
     font-size: 25px;
 }
@@ -1287,9 +1290,9 @@ section {
 }
 .right-sai {
     position: sticky;
-    top: 80vh;
+    top: 77vh;
     display: block;
-    width: 80px;
+    width: 120px;
     margin-left: auto;
     z-index: 999;
     margin-right: 0px;
