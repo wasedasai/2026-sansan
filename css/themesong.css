@@ -47,15 +47,8 @@ p.section-title {
     margin-top: 45px;
     margin-bottom: 20px;
 }
-
-.song-list {
-    margin-top: 10px;
-}
-
 p.song-item {
-    width: 100%;
-    margin-bottom: 0;
-    padding: 10px 0;
+    padding: 4px 0;
 }
 
 .song-year {
@@ -63,6 +56,111 @@ p.song-item {
     vertical-align: top;
 }
 
+.requirement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+p.requirement-item {
+    position: relative;
+    padding-left: 1.2em;
+    text-align: justify;
+}
+
+p.requirement-item::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #333333;
+}
+.jyoken{
+    margin-bottom: 25px;
+}
+.waseda-statement-container {
+    margin: 40px auto;
+    background-color: #fbfbfb;
+    border: 5px solid #e25c56; 
+    border-radius: 16px;
+    padding: 50px 40px; 
+}
+p.statement-paragraph { 
+    margin-bottom: 32px;    
+    text-align: left;
+}
+p.statement-paragraph:last-child {
+    margin-bottom: 0;
+}
+.content2{
+    margin-top: 170px;
+}
+.waseda-form-container {
+    max-width: 850px;
+    margin: 40px auto;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #444444;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; 
+}
+.sheet-box {
+    position: relative;
+    border: 5px solid #EF5350; 
+    border-radius: 16px;
+    padding: 30px 40px 10px 40px;
+    background-color: #ffffff;
+}
+
+/* 見出しのPタグ（左上の赤バッジ） */
+p.sheet-title {
+    display: inline-block;
+    position: absolute;
+    top: -20px; /* 枠線の真上に配置 */
+    left: 20px;
+    background-color: #e25c56;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 6px 24px;
+    border-radius: 20px;
+    margin: 0;
+}
+
+/* ==========================================
+   コンテンツ内部（Pタグの並び）
+   ========================================== */
+.sheet-content {
+    margin-top: 15px;
+}
+
+p.content-item {
+    font-size: 14.5px;
+    margin-bottom: 24px;
+    text-align: justify;
+    padding-left: 1em; /* 2行目以降を少しインデント */
+    text-indent: -1em; /* 1行目の「・」だけを左に突き出す */
+}
+
+/* 項目のタイトル（・アーティスト情報 など） */
+.item-header {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 4px;
+    text-indent: 0; /* インデントのリセット */
+}
+
+/* 💡 画像の下線付き（青文字・青下線）の部分を再現 */
+p.link-style .item-header,
+p.link-style {
+    color: #1a5ca8; /* 青文字 */
+    text-decoration: underline; /* 下線 */
+    text-underline-offset: 3px;
+}
 @media (max-width: 600px) {
     .waseda-container {
         padding: 24px 16px;
@@ -94,5 +192,58 @@ p.song-item {
         width: 100%;
         font-size: 15px;
         padding-left: 2px;
+    }
+    .waseda-requirement-container {
+        padding: 24px 16px;
+        margin: 20px auto;
+    }
+
+    p.requirement-item {
+        font-size: 14px; /* スマホ用に文字サイズを少しコンパクトに */
+        padding-left: 1.2em; /* 折り返しても文頭の綺麗さはキープ */
+    }
+
+    .waseda-statement-container {
+        margin: 20px 12px;
+        padding: 32px 20px; /* スマホに合わせて外枠の内側余白を少し狭く */
+        border-width: 2px;  /* 枠線もスマホに合わせて少し細く */
+        border-radius: 12px;
+    }
+
+    p.statement-paragraph {
+        font-size: 14px; /* スマホで見やすい文字サイズに微調整 */
+        line-height: 1.9;
+        margin-bottom: 24px; /* 段落間の余白もスマホ用に調整 */
+        
+        /* 💡 スマホの狭い画面で意図しない単語の切れ方を防ぐ */
+        word-break: break-all; 
+    }
+    .waseda-form-container {
+        margin: 30px 12px;
+        gap: 40px;
+    }
+
+    .sheet-box {
+        padding: 24px 16px 4px 16px;
+        border-width: 2px;
+        border-radius: 12px;
+    }
+
+    /* スマホ用にバッジを少し小さく、位置を微調整 */
+    p.sheet-title {
+        font-size: 13px;
+        padding: 4px 16px;
+        top: -15px;
+        left: 12px;
+    }
+
+    p.content-item {
+        font-size: 13.5px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .item-header {
+        font-size: 14.5px;
     }
 }
