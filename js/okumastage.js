@@ -13,6 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (overlayBlue) overlayBlue.classList.add('is-animated');
       if (overlayOrange) overlayOrange.classList.add('is-animated');
-    }, 800);
+    }, 400);
   }
 });
