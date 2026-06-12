@@ -314,7 +314,7 @@ header {
     border-bottom: 1px solid #222222;
 }
 .news-date {
-    width: 60px;
+    width: 61px;
     font-size: 20px;
     letter-spacing: 0.06em;
     margin-right: 22px;
@@ -552,8 +552,8 @@ header {
     margin-bottom: 25px;
 }
 .faq-question{
+    box-sizing: border-box;
     width: 100%;
-
     border: none;
     background: #EF5350;
 
@@ -687,9 +687,6 @@ header {
     display: block;
 }
 @media (max-width: 768px) {
-html {
-    overflow-x: hidden;
-}
 p {
     font-size: 14px;
     letter-spacing: 0.03em;
@@ -930,7 +927,8 @@ section {
     width: 80px;
     margin-left: auto;
     z-index: 999;
-    transform: translateX(10px);
+    margin-right: 0px;
+    transform: translateX(0px);
 }
 .right-sai img {
     display: block;
