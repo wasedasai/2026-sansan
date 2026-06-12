@@ -1021,6 +1021,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 10px;
   width: 100%;
   transform: none !important;
@@ -1029,6 +1030,7 @@ section {
 /* 4. 丸いアイテムのデザイン */
 .circle-item {
   position: relative;
+  display: block;
   width: calc(50% - 7.5px);
   height: auto;
   aspect-ratio: 1 / 1;
@@ -1500,6 +1502,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 10px;
   width: 100%;
   transform: none !important;
@@ -1509,6 +1512,7 @@ section {
 .circle-item {
   position: relative;
   width: calc(50% - 7.5px);
+  display: block;
   height: auto;
   aspect-ratio: 1 / 1;
 }

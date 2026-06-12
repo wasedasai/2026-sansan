@@ -143,7 +143,7 @@ search.addWidgets([
           <img src="{{img}}" alt="{{title}}" class="hit-image" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
           
           <div class="hit-content">
-          <div>
+          <div class="hit-tags">
               <span class="hit-tag">{{企画}}</span>
               <span class="hit-tag date-{{日時}}">
                 <svg width="32" height="17" viewBox="0 0 32 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-svg icon-7">
