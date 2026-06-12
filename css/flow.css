@@ -1,4 +1,6 @@
-
+.step2-section{
+    margin-top: 220px;
+}
 .flow-box {
     border: 5px solid #EF5350; 
     border-radius: 16px;      
@@ -61,7 +63,7 @@
 .accent-red {
     color: #EF5350;
     font-size: 40px;
-    margin-right: 5px;
+    margin-right: 2px;
 }
 .target-planning {
     margin-bottom: 80px;
@@ -121,7 +123,7 @@
 .step-badge {
     position: absolute;
     top: -24px; 
-    left: 43px;
+    left: 40px;
     background-color: #EF5350;
     color: #fbfbfb;
     font-size: 20px;
@@ -132,7 +134,7 @@
 .step-badge-o {
     position: absolute;
     top: -24px; 
-    left: 43px;
+    left: 35px;
     background-color: #FF9169;
     color: #fbfbfb;
     font-size: 20px;
@@ -144,7 +146,7 @@
     content: "";
     position: absolute;
     bottom: -6px;
-    left: 25px;
+    left: 20px;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 7px solid #EF5350;
@@ -153,7 +155,7 @@
     content: "";
     position: absolute;
     bottom: -6px;
-    left: 25px;
+    left: 24px;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 7px solid #FF9169;
@@ -183,7 +185,6 @@
     gap: 15px;
 }
 .item {
-    padding: 10px;
     border-radius: 8px;
     font-size: 20px;
 }
@@ -198,7 +199,7 @@
     letter-spacing: 0.06em;
     color: #222222;
     white-space: nowrap;      
-    padding-bottom: 40px;  
+    padding-bottom: 35px;  
     margin-right: -85px;   
 }
 .entry-text-title2 {
@@ -206,7 +207,7 @@
     letter-spacing: 0.06em;
     color: #222222;
     white-space: nowrap;      
-    padding-bottom: 30px;  
+    padding-bottom: 23px;  
     margin-right: -170px;   
 }
 .entry-text-title3 {
@@ -214,7 +215,7 @@
     letter-spacing: 0.06em;
     color: #222222;
     white-space: nowrap;      
-    padding-bottom: 30px;  
+    padding-bottom: 21px;  
     margin-right: -170px;   
 }
 .entry-text-title4 {
@@ -222,7 +223,7 @@
     letter-spacing: 0.06em;
     color: #222222;
     white-space: nowrap;      
-    padding-bottom: 30px;  
+    padding-bottom: 23px;  
     margin-right: -150px;   
 }
 .entry-text-title5 {
@@ -230,7 +231,7 @@
     letter-spacing: 0.06em;
     color: #222222;
     white-space: nowrap;      
-    padding-bottom: 30px;  
+    padding-bottom: 21px;  
     margin-right: -130px;   
 }
 .entry-text-title6 {
@@ -238,7 +239,7 @@
     letter-spacing: 0.06em;
     color: #222222;
     white-space: nowrap;      
-    padding-bottom: 30px;  
+    padding-bottom: 24px;  
     margin-right: -88px;   
 }
 .entry-svg-image {
@@ -278,7 +279,7 @@
 .accent-orange {
     color: #FF9169;
     font-size: 40px;
-    margin-right: 5px;
+    margin-right: 2px;
 }
 .target-planning2 {
     margin-bottom: 80px;
@@ -316,6 +317,13 @@
     transform: translateY(-2px);
 }
 @media screen and (max-width: 768px) {
+.step2-section{
+    margin-top: 100px;
+}
+.step3-section{
+    margin-top: 70px;
+}
+
 .flow-box {
     border-width: 3px;    
     border-radius: 12px;
@@ -380,6 +388,15 @@
       top: -18px;
       left: 20px;
   }
+   .step-badge::after{
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 14px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid #EF5350;
+   }
   .step-badge-o {
       font-size: 18px;
       padding: 4px 16px;
@@ -403,20 +420,19 @@
       line-height: 1.5;
   }
   .item{
-        font-size: 14px;
-      line-height: 1.5;
-       margin-bottom: -10px !important;
+     font-size: 14px;
+     line-height: 1.5;
+     margin-top: 9px;
   }
 
   .accent-red {
     color: #EF5350;
     font-size: 32px;
-    margin-right: 3px;
 }
+
   .accent-orange {
     color: #FF9169;
     font-size: 32px;
-    margin-right: 3px;
 }
     .entry-period-row-sp{
         display: block;
