@@ -176,9 +176,10 @@ p.content-item {
 
 p.step-text {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-end; 
     flex-wrap: wrap; 
 }
+
 .step-icon {
     display: inline-flex;
     justify-content: center;
@@ -192,12 +193,26 @@ p.step-text {
     flex-shrink: 0;
 }
 
+p.timeline-arrow {
+    font-size: 40px;
+    margin: 13px 0; 
+    width: 65px; 
+    text-align: center; 
+    
+    display: block; 
+}
+
 .bg-red {
     background-color: #EF5350;
 }
 
 .underline-red {
     border-bottom: 2px solid #EF5350;
+}
+.step-label.underline-red.extend-line {
+    margin-left: -40px;
+    padding-left: 40px;   
+    display: inline-block;
 }
 .date {
     margin-bottom: -6px;
@@ -215,10 +230,6 @@ p.step-text {
     padding-bottom: 8px;
 }
 
-p.timeline-arrow {
-        font-size: 40px;
-        margin: 13px 0 13px 20px;
- }
 .step-date {
     font-size: 36px;
     font-weight: 500;
