@@ -105,3 +105,37 @@ window.addEventListener('resize', () => {
     setupScroll1();
     setupScroll2();
 });
+
+window.scrollTo(0, 0);
+
+// ===== 初回のみ表示するローディング画面の処理 =====
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    const loadingVideo = document.getElementById('loading-video');
+
+    // sessionStorageを使って「このタブでの初回アクセスか」をチェック
+    const isFirstVisit = !sessionStorage.getItem('visited_top_page');
+
+    if (isFirstVisit) {
+        // 初回アクセスの場合は「訪問済み」の証をセットする
+        sessionStorage.setItem('visited_top_page', 'true');
+
+        // 動画が最後まで再生されたら（endedイベント）非表示にする
+        if (loadingVideo) {
+            loadingVideo.addEventListener('ended', () => {
+                loadingScreen.classList.add('is-hidden');
+                
+                // フェードアウトが終わる頃（0.5秒後）にHTMLから完全に削除
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 500); 
+            });
+        }
+    } else {
+        // 2回目以降のアクセスの場合は、ローディング画面を最初から消しておく
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+            loadingScreen.remove();
+        }
+    }
+});

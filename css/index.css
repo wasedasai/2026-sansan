@@ -714,6 +714,34 @@ header {
 .pc {
     display: block;
 }
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;;
+    background-color: #FBFBFB; /* サイトの背景色に合わせてるよ */
+    z-index: 9999; /* 一番手前に表示 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* 動画のスタイル */
+.loading-video {
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+    mix-blend-mode: darken;
+    transform: translateZ(0);
+}
+
+/* フェードアウト用のクラス */
+.loading-screen.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
 @media (min-width: 768px) and (max-width: 1024px) {
 header {
     margin: 15px auto auto auto;
@@ -1305,7 +1333,7 @@ section {
     height: auto;
 }
 .content {
-    transform: translateY(-150px);
+    transform: translateY(-190px);
 }
 .content h1 {
     font-size: 18px;
