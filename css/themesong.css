@@ -1,0 +1,98 @@
+.flow-box {
+    border: 5px solid #FF9169; 
+    border-radius: 16px;      
+    background-color: #fbfbfb; 
+    padding: 25px 45px;      
+    margin: 40px auto 40px 0;    
+    width: 90%;
+    box-sizing: border-box;
+}
+.flow-link {
+  display: flex;
+  align-items: center; 
+  gap: 24px;          
+  text-decoration: none;       
+  color: #222222;                  
+  text-decoration-thickness: auto; 
+  text-underline-offset: auto;    
+}
+.flow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+.flow-item {
+    display: flex;
+    align-items: center;        
+}
+.flow-icon {
+    width: auto;
+    height: 80px; 
+    flex-shrink: 0;
+}
+
+.flow-text {
+    font-size: 30px;
+    color: #222222;
+    letter-spacing: 0.05em;
+}
+p.description-text {
+    margin-bottom: 24px;
+}
+
+p.section-title {
+    margin-top: 45px;
+    margin-bottom: 20px;
+}
+
+.song-list {
+    margin-top: 10px;
+}
+
+p.song-item {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 10px 0;
+}
+
+.song-year {
+    width: 160px; 
+    vertical-align: top;
+}
+
+@media (max-width: 600px) {
+    .waseda-container {
+        padding: 24px 16px;
+        margin: 20px auto;
+    }
+
+    p.description-text {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    /* テーブル表示を解除して上下の2行に切り替え */
+    p.song-item {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .song-year {
+        display: block;
+        width: 100%;
+        margin-bottom: 4px;
+        font-size: 13px;
+        color: #888888;
+    }
+
+    .song-info {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        padding-left: 2px;
+    }
+}
