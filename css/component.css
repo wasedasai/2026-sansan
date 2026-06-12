@@ -31,7 +31,7 @@ header {
     background-color: #EF5350;
     border-radius: 80px;
     margin: 20px auto auto auto;
-    padding: 5px 56px 5px 6px;
+    padding: 5px 46px 5px 6px;
     width: 55vw;
     min-width: 791px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
@@ -46,6 +46,7 @@ header {
     height: 60px;
     width: 60px;
     border-radius: 50%;
+    margin-right: 15px;
     background-color: #FBFBFB;
     display: flex;
     align-items: center;
@@ -59,7 +60,7 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 50px;
+    gap: 0px;
 }
 .header-nav > ul {
     width: 100%;
@@ -241,6 +242,199 @@ header {
         transform: rotate(0deg);   /* 黒に戻りながらまっすぐ戻る */
     }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+p {
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+}
+a {
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+    text-decoration-thickness: 6.5%;
+    text-underline-offset: 19%;
+}
+header {
+    margin: 15px auto auto auto;
+    padding: 5px 34px 5px 6px;
+    width: 80vw;
+    min-width: 0;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    margin:0 auto;
+}
+.header-logo {
+    height: 60px;
+    width: 60px;
+    flex-shrink: 0;
+    margin-right: 7px;
+}
+.header-logo svg {
+    height: 56.18px;
+    width: auto;
+}
+.header-nav {
+    flex-grow: 1;
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 12px;
+}
+.header-nav ul {
+    gap: 0px;
+}
+.header-nav > ul {
+    width: 100%;
+    justify-content: space-evenly;
+}
+.drop-tag {
+    font-size: 20px;
+    gap: 3px;
+}
+.drop-tag svg {
+    margin-top: 9px;
+    height: 9px;
+    width: auto;
+}
+.insta-head svg {
+    height: 34px;
+    width: auto;
+    padding: 0;
+}
+.X-head svg {
+    height: 31px;
+    width: auto;
+    padding: 0;
+}
+.youtube-head svg {
+    height: 31px;
+    width: auto;
+    padding: 0;
+}
+.drop-menu {
+    top: calc(100% + 35px);
+    left: 85%;
+    transform: translateX(-50%) translateY(-38px);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: max-content;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.SNS-sp .drop-menu li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.header-SNS {
+    gap: 12px;
+}
+.SNS-sp .drop-menu {
+    padding: 8px;
+}
+.header-nav ul.drop-menu {
+    gap: 0;
+}
+.about-head {
+    left: 55%;
+}
+.event-head {
+    left: 100%;
+}
+.apply-head {
+    left:75%;
+}
+.sp-SNS {
+    left: 90%;
+}
+.nav-item.is-open .drop-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.drop-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px; 
+    left: 20%;
+    transform: translateX(-50%) scaleX(0.58) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background-color: #EF5350;
+    border-top-left-radius: 4px; 
+    z-index: -1;
+}
+.SNS-sp .drop-menu::before {
+    left: 30%;
+}
+.drop-menu a {
+    display: block;
+    padding: 2px 7px;
+    color: #FBFBFB;
+    text-decoration: none;
+    font-size: 14px;
+}
+.SNS-sp a {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: auto;
+}
+.drop-menu li {
+    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+.drop-menu li:last-child {
+    border-bottom: none;
+}
+.header-SNS a {
+    display: flex;
+    align-items: center;
+}
+.content {
+    padding: 0 50px;
+}
+.a-title {
+    margin-top: 150px;
+}
+.a-title h1 {
+    font-size: 70px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+.a-title h2 {
+    margin-left: 20px;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+.b-title {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 20px 0 40px;
+}
+.b-title svg {
+    height: 160px;
+    width: auto;
+    margin-left: -55px;
+}
+.b-title h1 {
+    margin-left: -39px;
+    margin-top: 38px;
+    font-size: 25px;
+    letter-spacing: 0.03em;
+}
+}
 @media (max-width: 768px) {
 p {
     font-size: 14px;
@@ -270,6 +464,7 @@ header {
     height: 39px;
     width: 39px;
     flex-shrink: 0;
+    margin-right: 0px;
 }
 .header-logo svg {
     height: 36.56px;
@@ -286,7 +481,7 @@ header {
 }
 .header-nav > ul {
     width: 100%;
-    justify-content: space-between; /* これで精一杯等間隔に広がります！ */
+    justify-content: space-evenly; /* これで精一杯等間隔に広がります！ */
 }
 .drop-tag {
     font-size: 14px;
