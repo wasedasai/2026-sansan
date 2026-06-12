@@ -167,7 +167,6 @@ body {
 }
 .hit-content {
   padding: 10px;
-  height: 115px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -182,6 +181,9 @@ body {
   margin-right: 2px;
   margin-bottom: 4px;
   vertical-align: middle;
+}
+.hit-tags {
+  height: 70px;
 }
 .hit-title {
   font-size: 24px;
