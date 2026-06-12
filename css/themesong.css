@@ -76,8 +76,14 @@ p.requirement-item::before {
     top: 0;
     color: #222222;
 }
-.jyoken{
-    margin-bottom: 25px;
+.jyoken {
+    margin-bottom: 40px;
+}
+.jyoken2 {
+    margin-bottom: 20px;
+}
+.jyoken1 {
+    margin-bottom: -15px;
 }
 .waseda-statement-container {
     margin: 40px auto;
@@ -151,7 +157,7 @@ p.content-item {
     margin-bottom: 30px;
 }
 .format-box {
-    border: 3px solid #EF5350; 
+    border: 5px solid #EF5350; 
     border-radius: 16px;
     padding: 35px 40px;
     background-color: #fbfbfb;
@@ -170,9 +176,10 @@ p.content-item {
 
 p.step-text {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-end; 
     flex-wrap: wrap; 
 }
+
 .step-icon {
     display: inline-flex;
     justify-content: center;
@@ -186,12 +193,26 @@ p.step-text {
     flex-shrink: 0;
 }
 
+p.timeline-arrow {
+    font-size: 40px;
+    margin: 13px 0; 
+    width: 65px; 
+    text-align: center; 
+    
+    display: block; 
+}
+
 .bg-red {
     background-color: #EF5350;
 }
 
 .underline-red {
     border-bottom: 2px solid #EF5350;
+}
+.step-label.underline-red.extend-line {
+    margin-left: -40px;
+    padding-left: 40px;   
+    display: inline-block;
 }
 .date {
     margin-bottom: -6px;
@@ -209,10 +230,6 @@ p.step-text {
     padding-bottom: 8px;
 }
 
-p.timeline-arrow {
-        font-size: 40px;
-        margin: 13px 0 13px 20px;
- }
 .step-date {
     font-size: 36px;
     font-weight: 500;
@@ -239,8 +256,22 @@ p.note-item {
     text-align: justify;
     margin-bottom: 0;
 }
+p.note-item2 {
+    position: relative;
+    padding-left: 1.5em;
+    text-align: justify;
+    margin-bottom: 0;
+    margin-top: 60px;
+}
 
 p.note-item::before {
+    content: "※";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #222222;
+}
+p.note-item2::before {
     content: "※";
     position: absolute;
     left: 0;
@@ -319,8 +350,22 @@ p.timeline-arrow {
         font-size: 28px;
         margin: 10px 0 10px 14px;
  }
+ 
+.content2{
+    margin-top: 80px;
+}
+.note-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 }
 @media (max-width: 600px) {
+.note-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
 .waseda-timeline-container{
     display: none;
 }
@@ -403,7 +448,7 @@ p.description-text {
     }
 
     p.requirement-item {
-        font-size: 14px; 
+        margin-bottom: -5px; 
     }
 
     .waseda-statement-container {
@@ -416,12 +461,11 @@ p.description-text {
         word-break: break-all; 
     }
     .waseda-form-container {
-        margin: 30px 12px;
         gap: 40px;
     }
 
     .sheet-box {
-        padding: 24px 16px 4px 16px;
+        padding: 16px 16px 4px 16px;
         border-width: 2px;
         border-radius: 12px;
     }
@@ -442,17 +486,13 @@ p.description-text {
     .item-header {
         font-size: 14.5px;
     }
-    .waseda-mail-container {
-        margin: 20px 12px;
-    }
-
     .mail-lead-text {
         font-size: 14px;
         line-height: 1.6;
     }
 
     .format-box {
-        padding: 24px 20px;
+        padding: 16px 16px 16px 16px;
         border-width: 2px;
         border-radius: 12px;
     }
@@ -499,6 +539,9 @@ p.step-sp-content.is-vertical {
     padding-bottom: 0.5px;
     display: inline-block;
     width: fit-content; 
+    display: inline; 
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .text-main-title {
@@ -526,8 +569,10 @@ p.timeline-sp-note {
 }
 
 p.note-item {
-    font-size: 14px; 
-    line-height: 1.7;
+    margin-bottom: -6px; 
+}
+p.note-item2 {
+    margin-top: 25px;
 }
 
 .date {
