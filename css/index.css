@@ -314,7 +314,7 @@ header {
     border-bottom: 1px solid #222222;
 }
 .news-date {
-    width: 61px;
+    width: 63px;
     font-size: 20px;
     letter-spacing: 0.06em;
     margin-right: 22px;
@@ -334,6 +334,7 @@ header {
 }
 .sat {
     color: #1B489D;
+    margin-left: -3px;
 }
 .sun {
     color: #B02E2D;
@@ -561,8 +562,6 @@ header {
 
     padding: 18px 20px;
 
-    cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -679,6 +678,32 @@ header {
 }
 .faq-first {
     margin-top: 37px;
+}
+.faq-detail {
+    margin-top: 33px;
+    height: fit-content;
+    width: fit-content;
+    padding: 12px 26px 12px 29px;
+    background-color: #EF5350;
+    font-size: 20px;
+    color: #FBFBFB;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: auto;
+    transition: 0.2s background-color ease;
+}
+.faq-detail:hover {
+    background-color: #F0968A;
+}
+.faq-detail img {
+    margin-left: 12px;
+    margin-right: 0;
+    height: 12px;
+    width: auto;
+    align-self: center;
+    transform: translateY(1px);
 }
 .sp {
     display: none;
@@ -958,7 +983,7 @@ section {
     font-weight: 500;
     height: auto;
     min-height: 0;
-    line-height: 0;
+    line-height: auto;
     min-height: 0;
 }
 .arrow {
@@ -1432,7 +1457,7 @@ section {
     font-weight: 500;
     height: auto;
     min-height: 0;
-    line-height: 0;
+    line-height: auto;
     min-height: 0;
 }
 .arrow {
@@ -1589,7 +1614,6 @@ section {
     padding: 18px 20px;
     background-color: #EF5350;
     border: none;
-    cursor: pointer;
     text-align: left;
 }
 .faq-label {
