@@ -222,69 +222,90 @@ header {
 }
 .footer {
   position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   overflow: hidden;
-  margin-top: 300px;
-  color: #ffffff;
-  font-family: sans-serif;
-}
-
-/* 修正：背景画像を画面の横幅いっぱいに引き伸ばす */
-.footer-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-/* 修正：画像そのものがハミ出したり切れたりしないように固定する */
-.footer-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 画面に合わせて自動トリミング */
-  display: block;
-} 
-.footer {
-  position: relative;
-  width: 100%;
-  margin: 0%;
-  padding: 0%;
-  overflow: hidden;
-  max-height: 3000px;
   margin-top: 100px;
+  max-height: none !important; 
+  min-height: 1000px; 
+  height: auto !important;  
+  color: #FBFBFB;
 }
-
 .footer-bg {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; 
   z-index: 1;
 }
-
 .footer-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; 
   object-position: center bottom;
+  display: block;
 }
 .footer-inner {
   position: relative;
-  z-index: 2; /* 背景より前に出す */
-  margin: 0 auto;
+  z-index: 2;
+  margin: 0 auto; 
   display: flex;
+  justify-content: space-between;
 }
-.nav-block h3 {
-  font-weight: normal;
-  margin: 0 0 16px 0;
-  letter-spacing: 0.05em;
+.footer-logo-area {
+  flex: 0 1 auto;
 }
 
+.footer-logo-img {
+  max-width: 6000px; 
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+.footer-links-area {
+  flex: 0 1 620px; /* 赤いエリアに収まるように右側の最大幅を制限 */
+  display: flex;
+  flex-direction: column;
+  gap: 36px; /* SNSアイコンとメニューの間の隙間 */
+  color: #ffffff; /* 文字色は白 */
+}
+
+/* SNSアイコン */
+.footer-sns {
+  display: flex;
+  gap: 28px; /* アイコン同士の隙間 */
+  padding-left: 4px; /* メニューの文字の縦ラインと綺麗に揃えるための微調整 */
+}
+
+.sns-link img {
+  width: 26px; /* アイコンの大きさをカンプ同様スマートに */
+  height: auto;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+/* マウスホバーで上品に不透明度を下げる */
+.sns-link:hover img {
+  opacity: 0.7;
+}
+
+/* ナビゲーション（4列のグリッド） */
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 綺麗に4等分の横並び */
+  gap: 24px;
+}
+
+/* メニューの各大見出し（About, Event など） */
+.nav-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.03em;
+}
+
+/* メニューのリンク一覧 */
 .nav-block ul {
   list-style: none;
   padding: 0;
@@ -292,15 +313,21 @@ header {
 }
 
 .nav-block li {
-  margin-bottom: 12px;
+  margin-bottom: 12px; /* 縦のリンク同士の間隔 */
 }
 
 .nav-block a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85); /* ほんの少しだけ透過させてデザインに馴染ませる */
   text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.02em;
   transition: color 0.2s ease;
 }
 
+/* マウスホバーでくっきり白く光らせる */
+.nav-block a:hover {
+  color: #ffffff;
+}
 /* PC（ホバーが使える端末）だけ、マウスを乗せた時に白くする */
 @media (hover: hover) {
   .nav-block a:hover {
