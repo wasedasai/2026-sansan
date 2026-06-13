@@ -139,3 +139,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// 1. 全体を包む親の箱（.flow-box）を取得
+const flowBox = document.querySelector('.flow-box');
+
+// 親の箱が存在するときだけ動かす（エラー防止）
+if (flowBox) {
+  // 2. 画面に入ったときに実行する設定を作る
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // .flow-box が画面の中に入ったら...
+      if (entry.isIntersecting) {
+        // 親の箱に 'is-visible' というクラスを追加する
+        entry.target.classList.add('is-visible');
+        
+        // 一度発動したら監視を解除する
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    // 3. オプション設定：箱の上部が「20%」見えたら発動する
+    threshold: 0.2
+  });
+
+  // 4. 監視システムをスタート！
+  observer.observe(flowBox);
+}
