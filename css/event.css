@@ -76,6 +76,12 @@ body {
   cursor: pointer;
   font-size: 20px;
   transition: all 0.2s ease;
+  transition: opacity 0.2s ease box-shadow 0.2s ease;;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  padding: 6px 16px !important;
+}
+.ais-RefinementList-labelText:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
 }
 
 .ais-RefinementList-item--selected .ais-RefinementList-labelText {
@@ -100,11 +106,7 @@ body {
 
 .ais-ClearRefinements-button {
   background: transparent !important;      
-  background-image: none !important;       
-  box-shadow: none !important;             
-  border: none !important;                 
-  border-radius: 0 !important;            
-  padding: 0 !important;
+  background-image: none !important;                                              
   color: #EF5350 !important;               
   border-bottom: none !important;
   text-decoration: underline !important;           
@@ -116,12 +118,8 @@ body {
   opacity: 1 !important;                   
   width: auto !important;                  
   min-width: 0 !important;
-  transition: opacity 0.2s ease;
 }
 
-.ais-ClearRefinements-button:hover {
-  opacity: 0.5 !important;
-}
 .ais-RefinementList-labelText svg {
     height: 29.33px;
     width: auto;
