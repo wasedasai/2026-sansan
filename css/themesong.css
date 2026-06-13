@@ -348,16 +348,24 @@ p.sheet-title {
 }
 p.timeline-arrow {
         font-size: 28px;
-        margin: 10px 0 10px 14px;
+        margin: 10px 0px 10px -10px;
+        text-align: center;
+        display: block;  
  }
+
  
 .content2{
-    margin-top: 80px;
+    margin-top: 80px; 
 }
 .note-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+.step-label.underline-red.extend-line {
+    margin-left: -31px;
+    padding-left: 40px;   
+    display: inline-block;
 }
 }
 @media (max-width: 600px) {
@@ -461,6 +469,7 @@ p.description-text {
         word-break: break-all; 
     }
     .waseda-form-container {
+        margin-top: 70px;
         gap: 40px;
     }
 
