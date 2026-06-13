@@ -5,7 +5,7 @@ body{
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('../img/fes/フェス企画企画写真.JPG');
+  background-image: url('../img/Salon/卒業生サロン.jpeg');
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -65,7 +65,7 @@ body{
   right: 100px;
   color: white;
   text-align: right;
-  font-size: 64px;
+  font-size: 52px;
   font-weight: 500;
   z-index: 10;
 }
@@ -108,9 +108,6 @@ body{
   line-height: 33px;
   letter-spacing: 0.06em;
 }
-.section-text2 {
-  margin-top: 2px;
-}
 
 .content-indent {
   margin-left: 20px;
@@ -132,12 +129,12 @@ body{
     display: flex !important;
     flex-direction: column !important; 
     gap: -5px !important;              
-    width: 45% !important;
+    width: 50% !important;
 }
 
 .datetime-section .pc-date {
     display: block !important;
-    width: 45% !important;
+    width: 50% !important;
     max-width: 400px !important;      
     height: auto !important;
 }
@@ -173,9 +170,6 @@ body{
     gap: 16px;         
     margin-top: 10px;   
 }
-.button-container{
-    margin-bottom: 40px;
-}
 .recruitment-section .type-btn {
     display: flex;
     justify-content: center; 
@@ -196,19 +190,8 @@ body{
     border: 3px solid #EF5350; 
     color: #EF5350;           
 }
-.condition-title {
-    display: block !important;
-    text-align: left !important;
-    margin-top: 15px !important;
-    margin-bottom: 5px !important;
-}
-p.force-bullet {
-    display: block !important;
-    text-align: justify !important;
-    margin-bottom: 1px !important;
-    padding-left: 1.2em !important;  
-    text-indent: -1.2em !important; 
-}
+
+
 @media screen and (min-width: 481px) and (max-width: 1024px) {
     .recruitment-section .type-btn {
     display: flex;
@@ -271,7 +254,7 @@ p.force-bullet {
     right: 40px; 
     color: white;
     text-align: right;
-    font-size: 40px; 
+    font-size: 30px; 
     line-height: normal; 
     letter-spacing: 0.03em;
     z-index: 10;
@@ -314,14 +297,15 @@ p.force-bullet {
     flex-direction: column !important; 
     align-items: flex-start;      
     gap: -5px;                     
-    width: 100%;
+    width: 120%;
 }
 .pc-date {
     display: block;
-    width: 100%;                 
+    width: 120%;                 
     max-width: 500px;            
-    height: auto;                 
-}
+    height: auto; 
+}                
+
 .sp-date-box {
     display: none !important;     
 }
@@ -330,11 +314,7 @@ p.force-bullet {
 
 
 
-
 @media screen and (max-width: 480px) {
-    .section-text2 {
-  margin-top: -9px;
-}
 .recruitment-section .btn-light {
     border: 1px solid rgb(240 150 138 / 50%); 
     color: rgb(240 150 138 / 50%);           
@@ -369,7 +349,6 @@ p.force-bullet {
     .datetime-section .sp-date {
         display: block !important;
         width: 70% !important;
-        max-width: 80% !important;
         height: auto !important;
     }
 .pc-date-box .sp-date {
@@ -429,7 +408,7 @@ p.force-bullet {
     right: 20px; 
     color: white;
     text-align: right;
-    font-size: 25px; 
+    font-size: 20px; 
     line-height: normal; 
     letter-spacing: 0.03em;
     z-index: 10;
@@ -466,12 +445,4 @@ p.force-bullet {
   .nobreak {
     display: inline-block;
   }
-
-.force-condition-box {
-    display: block !important;
-    text-align: left !important;
-    width: 100% !important;
-}
-
-
 }
