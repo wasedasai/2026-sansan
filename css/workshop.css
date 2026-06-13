@@ -304,13 +304,13 @@ body{
     width: 100%;                 
     max-width: 500px;            
     height: auto;                 
-
+}
 .sp-date-box {
     display: none !important;     
 }
 }
 
-}
+
 
 
 
@@ -328,7 +328,7 @@ body{
     justify-content: center; 
     align-items: center;     
     width: 110px;          
-    height: 44px;            
+    height: 37px;            
     border-radius: 12px;    
     font-size: 14px;        
     font-weight: bold;       
