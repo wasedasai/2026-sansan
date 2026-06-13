@@ -1,41 +1,30 @@
-// 1. Algoliaの初期設定（★ここをご自身の情報に書き換えてください！）
+
 const searchClient = algoliasearch(
-  '732PN87HX5', // 例: 'A1B2C3D4E5'
-  '4645d549b664c3a9d54a378cef7a3385' // 例: '1a2b3c4d5e...' (Adminキーは絶対に使わないでください！)
+  '732PN87HX5', 
+  '4645d549b664c3a9d54a378cef7a3385' 
 );
 
 const search = instantsearch({
-  indexName: '早稲田祭参参サイト検索', // Algoliaで付けたIndex名
+  indexName: '早稲田祭参参サイト検索', 
   searchClient,
 });
-
-// 2. 絞り込みボタン（RefinementList）の配置
 search.addWidgets([
-  // 企画枠
   instantsearch.widgets.refinementList({
     container: '#facet-kikakuwaku',
     attribute: '企画',
-    // ↓ ここから追加：強制的に表示したい選択肢を固定する
     transformItems(items) {
-      const allOptions = ['参加団体・参加者企画', '運営スタッフ企画']; // ★ここに出したい選択肢をすべて書く
+      const allOptions = ['参加団体・参加者企画', '運営スタッフ企画']; 
       return allOptions.map(option => {
         const found = items.find(item => item.value === option);
-        // 見つかったらそれを、0件ならダミーのボタンを表示
         return found ? found : { label: option, value: option, count: 0, isRefined: false, highlighted: option };
       });
     },
   }),
-
-  // 日時
-  // 日時
   instantsearch.widgets.refinementList({
     container: '#facet-date',
     attribute: '日時',
     transformItems(items) {
-      // 1. Excelの実際のデータ（0件でも消えないようにする項目）
       const allOptions = ['祭当日以前', '7日', '8日', '両日'];
-      
-      // 2. 各項目に対応するSVGアイコンと文字のセット
       const svgIcons = {
         '7日': `
           <svg width="88" height="29" viewBox="0 0 88 29" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -60,8 +49,6 @@ search.addWidgets([
       return allOptions.map(option => {
         const found = items.find(item => item.value === option);
         let finalItem = found ? { ...found } : { label: option, value: option, count: 0, isRefined: false };
-        
-        // 3. SVGデータ（または文字）を customSvg にセット
         if (svgIcons[finalItem.value]) {
           finalItem.customSvg = svgIcons[finalItem.value];
         } else {
@@ -71,7 +58,7 @@ search.addWidgets([
         return finalItem;
       });
     },
-    // 4. テンプレートを上書きして、波括弧3つ {{{ }}} でSVGを描画
+
     templates: {
       item: `
         <label class="ais-RefinementList-label">
@@ -84,7 +71,6 @@ search.addWidgets([
     }
   }),
 
-  // 募集
   instantsearch.widgets.refinementList({
     container: '#facet-boshu',
     attribute: '募集',
@@ -97,7 +83,6 @@ search.addWidgets([
     },
   }),
 
-  // 個人参加
   instantsearch.widgets.refinementList({
     container: '#facet-kojin',
     attribute: '個人参加',
@@ -113,31 +98,22 @@ search.addWidgets([
     container: '#stats-container',
     templates: {
       text(data) {
-        // もし検索結果が「20件」なら、何も表示しない（空っぽの文字を返す）
         if (data.nbHits === 20) {
           return ''; 
         }
-        
-        // それ以外の件数（絞り込まれた時など）は、通常通り件数を表示する
         return `${data.nbHits}件の検索結果`;
       },
     },
   }),
-  // 3. クリアボタン（以降はそのまま）
   instantsearch.widgets.clearRefinements({
     container: '#clear-refinements',
     templates: {
       resetLabel: '全ての条件をクリア',
     },
   }),
-
-  // （4の検索結果のコードもこのまま残してください）
-
-  // 4. 検索結果（Hits）の配置とカードのデザイン
   instantsearch.widgets.hits({
     container: '#hits',
     templates: {
-      // {{変数名}} にExcelの列名を入れるとデータが表示されます
       item: `
         <a href="{{pages}}" class="hit-card">
           <img src="{{img}}" alt="{{title}}" class="hit-image" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
@@ -174,5 +150,4 @@ search.addWidgets([
   })
 ]);
 
-// 5. 検索をスタート！
 search.start();

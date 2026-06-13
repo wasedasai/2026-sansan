@@ -1,4 +1,3 @@
-/* 全体のレイアウト（左にメニュー、右に結果） */
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
   overflow-x: hidden;
@@ -8,7 +7,6 @@ body {
   flex-direction: column;
   gap: 30px;
   padding: 20px 140px;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -17,7 +15,7 @@ body {
   padding: 0 140px;
 }
 .b-title {
-  margin: 100px 0 0px;
+  margin-bottom: -35px;
 }
 .b-title p {
   white-space: nowrap;
@@ -32,23 +30,15 @@ body {
 .content {
   padding: 0;
 }
-/* -----------------------------------
-   ★魔法のCSS：チェックボックスをボタン化
------------------------------------- */
-/* リストを横並びにする */
 .ais-RefinementList-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  align-items: flex-start; /* ★追加：要素が縦に伸びて揃う「道連れ」を防ぐ */
+  align-items: flex-start; 
 }
-
-/* 1. 元の四角いチェックボックスを非表示にする */
 .ais-RefinementList-checkbox {
   display: none;
 }
-
-/* 2. 件数（カウント）を非表示にする（デザインに合わせるため） */
 .ais-RefinementList-count {
   display: none;
 }
@@ -62,43 +52,33 @@ body {
   margin-right: 10px;
 }
 .facet-group h4 {
-  width: 140px;      /* ★ここで左側の幅を固定！好みに合わせて数値を調整してください */
-  flex-shrink: 0;    /* 画面が狭くなってもこの幅を縮めない */
-  margin: 0;         /* 余計な余白を消す */
-  padding-top: 8px;  /* ボタンの高さと文字の高さを微調整 */
+  width: 140px;      
+  flex-shrink: 0;    
+  margin: 0;         
+  padding-top: 8px;  
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 20px;
   font-weight: 500;
 }
-/* 3. 文字（ラベル）をボタンのような見た目にする */
 .ais-RefinementList-labelText {
   display: inline-block;
   padding: 6px 16px;
-  border: 1px solid #EF5350; /* 通常時はグレーの枠線 */
-  border-radius: 10px;    /* 角丸 */
+  border: 1px solid #EF5350; 
+  border-radius: 10px;   
   color: #222222;
   cursor: pointer;
   font-size: 20px;
   transition: all 0.2s ease;
 }
 
-/* 4. 選択された時のデザイン（赤い枠線と文字にする） */
 .ais-RefinementList-item--selected .ais-RefinementList-labelText {
-  border-color: #ff4d4f; /* 画像のような赤色 */
+  border-color: #ff4d4f; 
   color: #ff4d4f;
-  background-color: #fff1f0; /* 薄い赤の背景（お好みで外してもOK） */
+  background-color: #fff1f0; 
   font-weight: normal !important;
 }
-/* -----------------------------------
-   「全ての条件をクリア」ボタンのデザイン
------------------------------------- */
-/* ボタンの基本スタイル（赤文字＋赤下線） */
-/* -----------------------------------
-   「全ての条件をクリア」ボタンのデザイン
------------------------------------- */
-/* 1. ボタンが入っている透明な箱を「右寄せ」にする */
 .search-info-wrapper {
   display: flex;
   flex-direction: column;
@@ -110,33 +90,30 @@ body {
 }
 .search-info-wrapper {
   margin-left: auto;
-  padding-right: 10px;       /* 右側のボタンと縦のラインを揃えるための微調整 */
+  padding-right: 10px;      
 }
 
-/* 2. Algoliaのお節介デザインを完全に破壊して、赤文字・赤下線にする */
 .ais-ClearRefinements-button {
-  background: transparent !important;      /* 背景色を透明に */
-  background-image: none !important;       /* デフォルトのグラデーションを消滅させる */
-  box-shadow: none !important;             /* デフォルトの影を消滅させる */
-  border: none !important;                 /* デフォルトの枠線を消す */
-  border-radius: 0 !important;             /* 角丸をリセット */
+  background: transparent !important;      
+  background-image: none !important;       
+  box-shadow: none !important;             
+  border: none !important;                 
+  border-radius: 0 !important;            
   padding: 0 !important;
-  color: #EF5350 !important;               /* 最初から赤文字！ */
-  border-bottom: none !important; /* 最初から赤い下線！ */
-  text-decoration: underline !important;           /* 下線を引く */
-  text-decoration-thickness: 1.5px !important;     /* 下線の太さ（お好みで） */
-  text-underline-offset: 6px !important;           /* 文字と下線の隙間 */
-  font-size: 20px !important;              /* 文字サイズ（お好みで変更OK） */
+  color: #EF5350 !important;               
+  border-bottom: none !important;
+  text-decoration: underline !important;           
+  text-decoration-thickness: 1.5px !important;    
+  text-underline-offset: 6px !important;         
+  font-size: 20px !important;              
   font-weight: normal !important;
-  cursor: pointer !important;              /* 最初から指マーク（矢印にしたい場合は default に） */
-  opacity: 1 !important;                   /* 最初から薄くならずに100%の濃さ */
-  
-  width: auto !important;                  /* 横幅いっぱいになるのを防ぐ */
+  cursor: pointer !important;              
+  opacity: 1 !important;                   
+  width: auto !important;                  
   min-width: 0 !important;
   transition: opacity 0.2s ease;
 }
 
-/* マウスを乗せた時だけ少し透かす */
 .ais-ClearRefinements-button:hover {
   opacity: 0.5 !important;
 }
@@ -144,9 +121,6 @@ body {
     height: 29.33px;
     width: auto;
   }
-/* -----------------------------------
-   検索結果カードのデザイン
------------------------------------- */
 .ais-Hits-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -155,7 +129,7 @@ body {
   width: 100%;
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* 中身を上から下へ縦並びにする */
+  flex-direction: column; 
   height: 100%;
   border: 1px solid #222222;
   text-decoration: none;
@@ -163,9 +137,8 @@ body {
 }
 .ais-Hits-item, .ais-InfiniteHits-item {
   padding: 0 !important;
-  width: 100% !important; /* Algoliaのお節介な幅指定をリセット */
   margin: 0 !important;
-  min-width: 0 !important; /* ★超重要：これを入れないと文字長さに引っ張られて崩れます！ */
+  min-width: 0 !important; 
 }
 .hit-image {
   width: 100%;
@@ -184,7 +157,7 @@ body {
 .hit-tag {
   display: inline-block;
   height: 20px;
-  font-size: 12px;
+  font-size: 14px;
   border: 1px solid #222222;
   padding: 2px 6px;
   border-radius:8px;
@@ -196,7 +169,7 @@ body {
   height: 70px;
 }
 .hit-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: normal;
   margin: 0;
   margin-bottom: 25px;
@@ -204,30 +177,21 @@ body {
 .tag-なし {
   display: none;
 }
-/* 基本設定（横並びにして縦を揃える） */
+
 .hit-tag {
   display: inline-flex;
   align-items: center;
 }
 
-/* 普段はSVGアイコンたちを隠しておく */
 .icon-svg {
   display: none;
 }
-
-
-/* ーーー 7日の場合 ーーー */
-/* "date-7日" の時は、7日用SVGを表示して、元の文字を隠す */
 .date-7日 .icon-7 {
   display: block; 
 }
 .date-7日 .date-text {
   display: none; 
 }
-
-
-/* ーーー 8日の場合 ーーー */
-/* "date-8日" の時は、8日用SVGを表示して、元の文字を隠す */
 .date-8日 .icon-8 {
   display: block; 
 }
@@ -243,10 +207,13 @@ body {
 }
 .clear-container {
   display: flex;
-  align-items: flex-end; /* または center（ボタンの縦位置に合わせて調整） */
+  align-items: flex-end; 
   flex-grow: 1;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+  .b-title{
+    padding: 0 0px;
+  }
   .results {
     padding: 0 50px;
   }
@@ -254,12 +221,10 @@ body {
     padding: 20px 50px;
   }
 .ais-Hits-list {
-    /* ↓ 1fr だった部分を minmax(0, 1fr) に書き換える ↓ */
     grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 }
 @media (max-width: 768px) {
-  /* 全体のレイアウト（左にメニュー、右に結果） */
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
 }
@@ -290,22 +255,16 @@ body {
 .content {
   padding: 0;
 }
-/* -----------------------------------
-   ★魔法のCSS：チェックボックスをボタン化
------------------------------------- */
-/* リストを横並びにする */
 .ais-RefinementList-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-/* 1. 元の四角いチェックボックスを非表示にする */
 .ais-RefinementList-checkbox {
   display: none;
 }
 
-/* 2. 件数（カウント）を非表示にする（デザインに合わせるため） */
 .ais-RefinementList-count {
   display: none;
 }
@@ -330,29 +289,28 @@ body {
   margin-right: 6px;
 }
 .facet-group h4 {
-  width: auto;      /* ★ここで左側の幅を固定！好みに合わせて数値を調整してください */
-  flex-shrink: 0;    /* 画面が狭くなってもこの幅を縮めない */
-  margin: 0;         /* 余計な余白を消す */
-  padding-top: 12px;  /* ボタンの高さと文字の高さを微調整 */
+  width: auto;     
+  flex-shrink: 0;    
+  margin: 0;        
+  padding-top: 12px; 
   font-size: 14px;
   letter-spacing: 0.03em;
   font-weight: 500;
 }
-/* 3. 文字（ラベル）をボタンのような見た目にする */
+
 .ais-RefinementList-labelText {
-    padding: 4px 10px; /* ★上下4px、左右10pxくらいにするとスマホでも綺麗に見えます */
+    padding: 4px 10px; 
     font-size: 14px;
     letter-spacing: 0.03em;
-    line-height: normal; /* ★修正：auto を normal に変更（または削除） */
-    height: fit-content; /* ★追加：高さを中身（文字）にピタッと合わせる */
+    line-height: normal; 
+    height: fit-content; 
     transition: all 0.2s ease;
   }
 
-/* 4. 選択された時のデザイン（赤い枠線と文字にする） */
 .ais-RefinementList-item--selected .ais-RefinementList-labelText {
-  border-color: #ff4d4f; /* 画像のような赤色 */
+  border-color: #ff4d4f; 
   color: #ff4d4f;
-  background-color: #fff1f0; /* 薄い赤の背景（お好みで外してもOK） */
+  background-color: #fff1f0; 
   font-weight: normal !important;
 }
 .ais-RefinementList-labelText svg {
