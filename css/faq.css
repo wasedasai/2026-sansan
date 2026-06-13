@@ -1,5 +1,5 @@
 .content2{
-    margin-top: 50px;
+    margin-top: 100px;
 }
 .faq-section{
     margin-top: 60px;
@@ -26,19 +26,21 @@
 }
 .faq-label p{
     color: #FBFBFB;
+    text-align: left;
 }
-.faq-icon-q{
+.faq-icon-q {
     width: 55px;
     height: 46px;
     flex-shrink: 0;
-    border-radius: 35%;
+    border-radius: 30px;
     background: #FBFBFB;
     color: #222222;
     font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-     position: relative;
+    position: relative;
+    padding-bottom: 3px; 
 }
 .faq-icon-a{
     width: 55px;
@@ -53,6 +55,7 @@
     justify-content: center;
     align-self:center;
     position: relative;
+    
 }
 .faq-icon-q::after{
     content:"";
@@ -86,6 +89,7 @@
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+    margin-left: auto;
 }
 
 .faq-answer{
@@ -107,7 +111,7 @@
 }
 
 .faq-item.active .faq-answer{
-    max-height: 300px;
+    max-height: 1000px;
 }
 
 .faq-item.active .faq-arrow{
@@ -117,7 +121,7 @@ strong {
     font-weight: 700;
 }
 .b-title-2{
-    margin-top: 160px;
+    margin-top: 170px;
 }
 .contact-form{
     margin-bottom: 48px;
@@ -154,7 +158,21 @@ strong {
     display: none;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .faq-question{
+    width: 100%;
+    border: none;
+    background: #EF5350;
+    border-radius: 20px;
+    padding: 18px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: inherit;
+}
 
+}
 
 
 
@@ -190,9 +208,9 @@ strong {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
+    width: 36px;
+    height: 29px;
+    min-width: 36px;
     background-color: #FBFBFB;
     color: #222222;
     border-radius: 45%;
@@ -230,19 +248,20 @@ strong {
     display: flex;
     align-items: flex-start; 
     gap: 16px;
-    padding: 24px 20px;
+    padding: 20px 15px;
     background-color: #FBFBFB;
+    height: auto;
 }
 .faq-icon-a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
+    width: 36px;
+    height: 29px;
+    min-width: 36px;
     background-color: #EF5350;
     color: #FBFBFB;
-    border-radius: 40%; 
+    border-radius: 45%; 
     font-size: 18px;
     position: relative;
 }
@@ -305,7 +324,7 @@ strong {
     display: block;
 }
 .b-title-2{
-    margin-top: 70px;
+    margin-top: 90px;
 }
 }
 
