@@ -158,7 +158,6 @@ header {
     border-top-right-radius: 10px;
 }
 
-/* メニューの一番下の項目に、下の角丸をつける */
 .drop-menu li:last-child {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -210,21 +209,117 @@ header {
 }
 .color-wipe span {
     display: inline-block;
-    
-    /* ↓ 親から引っ越してきた背景の設定 ↓ */
     color: transparent;
     background-image: linear-gradient(to top, black 33.3%, red 33.3%, red 66.6%, black 66.6%);
     background-size: 100% 300%;
     background-position: top;
     -webkit-background-clip: text;
     background-clip: text;
-    
-    /* 初期状態の角度 */
     transform: rotate(0deg); 
 }
-/* color-wipeの中のspanタグに対する設定 */
 .color-wipe.is-active span {
     animation: wipeAndRotate 1.3s ease-in-out forwards;
+}
+.footer {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-top: 300px;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* 修正：背景画像を画面の横幅いっぱいに引き伸ばす */
+.footer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 修正：画像そのものがハミ出したり切れたりしないように固定する */
+.footer-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画面に合わせて自動トリミング */
+  display: block;
+} 
+.footer {
+  position: relative;
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+  overflow: hidden;
+  max-height: 3000px;
+  margin-top: 100px;
+}
+
+.footer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.footer-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.footer-inner {
+  position: relative;
+  z-index: 2; /* 背景より前に出す */
+  margin: 0 auto;
+  display: flex;
+}
+.nav-block h3 {
+  font-weight: normal;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.05em;
+}
+
+.nav-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-block li {
+  margin-bottom: 12px;
+}
+
+.nav-block a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* PC（ホバーが使える端末）だけ、マウスを乗せた時に白くする */
+@media (hover: hover) {
+  .nav-block a:hover {
+    color: #ffffff;
+  }
+  .sns-link:hover img {
+    opacity: 0.7;
+  }
+}
+
+/* SNSアイコン共通 */
+.footer-sns {
+  display: flex;
+  gap: 24px;
+}
+
+.sns-link img {
+  width: 28px;
+  height: auto;
 }
 
 /* 色の変化と回転を同時に行うアニメーション */
@@ -243,6 +338,48 @@ header {
     }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+      .footer {
+    min-height: auto; /* スマホはコンテンツの長さに合わせる */
+  }
+
+  .footer-inner {
+    flex-direction: column; /* 上から下に縦並び */
+    align-items: flex-start;
+    padding: 100px 24px 40px; /* 上の波を避ける余白 */
+  }
+
+  .footer-logo-area {
+    margin-bottom: 48px; /* ロゴとメニューの間隔 */
+  }
+
+  .footer-logo-img {
+    max-width: 280px; /* スマホに合わせてロゴを少し小さく */
+    width: 100%;
+  }
+
+  .footer-links-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* メニューを縦1列に並べる */
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .nav-block h3 {
+    font-size: 18px;
+  }
+
+  .nav-block a {
+    font-size: 15px;
+    padding: 4px 0; /* タップしやすいように少し上下に隙間を作る */
+    display: inline-block;
+  }
 p {
     font-size: 16px;
     letter-spacing: 0.03em;
