@@ -1,6 +1,11 @@
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
   overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+.content{
+  margin: 0;
 }
 .search-container {
   display: flex;
@@ -211,14 +216,20 @@ body {
   flex-grow: 1;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+  body{
+    margin: 0px;
+    padding: 0px;
+  }
   .b-title{
-    padding: 0 0px;
+    font-size: 40px;
   }
-  .results {
-    padding: 0 50px;
-  }
+  .a-title,
+.b-title {
+  padding: 0 38px;
+}
+ 
   .search-container {
-    padding: 20px 50px;
+    padding: 20px 40px;
   }
 .ais-Hits-list {
     grid-template-columns: repeat(2, minmax(0, 1fr)); 
@@ -227,6 +238,8 @@ body {
 @media (max-width: 768px) {
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
+  margin: 0px;
+    padding: 0px;
 }
 .search-container {
   display: flex;
@@ -242,7 +255,8 @@ body {
   padding: 0 30px;
 }
 .b-title {
-  margin: 70px 0 0px;
+  margin-top: 50px;
+  margin-bottom: -30px;
 }
 .b-title p {
   white-space: nowrap;
@@ -250,7 +264,6 @@ body {
 .results { 
   flex: 1;
   margin-top: 50px;
-  padding: 0 30px;
  }
 .content {
   padding: 0;
@@ -314,18 +327,9 @@ body {
   font-weight: normal !important;
 }
 .ais-RefinementList-labelText svg {
-    width: 60px; /* ★好みの幅に変更してください（元のPCサイズは約88pxです） */
-    height: auto; /* 高さは自動調整して比率を保つ */
+    width: 60px; 
+    height: auto; 
   }
-  
-/* -----------------------------------
-   「全ての条件をクリア」ボタンのデザイン
------------------------------------- */
-/* ボタンの基本スタイル（赤文字＋赤下線） */
-/* -----------------------------------
-   「全ての条件をクリア」ボタンのデザイン
------------------------------------- */
-/* 1. ボタンが入っている透明な箱を「右寄せ」にする */
 .search-info-wrapper {
   display: flex;
   flex-direction: column;
@@ -337,45 +341,38 @@ body {
 }
 .search-info-wrapper {
   margin-left: auto;
-  padding-right: 0px;       /* 右側のボタンと縦のラインを揃えるための微調整 */
+  padding-right: 0px;       
 }
-
-/* 2. Algoliaのお節介デザインを完全に破壊して、赤文字・赤下線にする */
 .ais-ClearRefinements-button {
-  background: transparent !important;      /* 背景色を透明に */
-  background-image: none !important;       /* デフォルトのグラデーションを消滅させる */
-  box-shadow: none !important;             /* デフォルトの影を消滅させる */
-  border: none !important;                 /* デフォルトの枠線を消す */
-  border-radius: 0 !important;             /* 角丸をリセット */
+  background: transparent !important;      
+  background-image: none !important;       
+  box-shadow: none !important;             
+  border: none !important;                 
+  border-radius: 0 !important;            
   padding: 0 !important;
-  color: #EF5350 !important;               /* 最初から赤文字！ */
-  border-bottom: none !important; /* 最初から赤い下線！ */
-  text-decoration: underline !important;           /* 下線を引く */
-  text-decoration-thickness: 1px !important;     /* 下線の太さ（お好みで） */
-  text-underline-offset: 4px !important;            /* 文字と下線の隙間 */
-  font-size: 14px !important;              /* 文字サイズ（お好みで変更OK） */
+  color: #EF5350 !important;               
+  border-bottom: none !important; 
+  text-decoration: underline !important;           
+  text-decoration-thickness: 1px !important;     
+  text-underline-offset: 4px !important;            
+  font-size: 14px !important;             
   font-weight: normal !important;
-  cursor: pointer !important;              /* 最初から指マーク（矢印にしたい場合は default に） */
-  opacity: 1 !important;                   /* 最初から薄くならずに100%の濃さ */
+  cursor: pointer !important;              
+  opacity: 1 !important;                   
   
-  width: auto !important;                  /* 横幅いっぱいになるのを防ぐ */
+  width: auto !important;                 
   min-width: 0 !important;
   transition: opacity 0.2s ease;
 }
 
-/* マウスを乗せた時だけ少し透かす */
 .ais-ClearRefinements-button:hover {
   opacity: 0.5 !important;
 }
 
-/* -----------------------------------
-   検索結果カードのデザイン
------------------------------------- */
 .ais-Hits-list {
   display: grid !important;
-  /* ↓ 1fr をやめて、絶対に物理的な 50% ずつに強制する ↓ */
   grid-template-columns: 50% 50% !important; 
-  gap: 0 !important; /* 隙間なし */
+  gap: 0 !important;
   width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -396,7 +393,7 @@ body {
   margin: 0 !important;
   min-width: 0 !important; 
   box-sizing: border-box !important;
-  overflow: hidden !important; /* ★もし50%の枠を超えようとする中身がいても、強制的に枠内に収める */
+  overflow: hidden !important; 
 }
 .hit-image {
   width: 100%;
@@ -415,14 +412,14 @@ body {
 }
 .hit-content > div:first-child {
   display: flex;
-  flex-wrap: wrap; /* タグがはみ出そうなら下へ改行する */
-  gap: 2px;        /* タグ同士のわずかな隙間 */
+  flex-wrap: wrap; 
+  gap: 2px;       
   margin-bottom: 4px;
 }
 .hit-tag {
   display: inline-block;
   height: 16px;
-  font-size: 8px;
+  font-size: 10px;
   border: 1px solid #222222;
   padding: 2px 4px;
   border-radius:8px;
@@ -434,7 +431,7 @@ body {
   height: 60px;
 }
 .hit-title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
   margin: 0;
   margin-bottom: 0px;
@@ -442,20 +439,14 @@ body {
 .tag-なし {
   display: none;
 }
-/* 基本設定（横並びにして縦を揃える） */
+
 .hit-tag {
   display: inline-flex;
   align-items: center;
 }
-
-/* 普段はSVGアイコンたちを隠しておく */
 .icon-svg {
   display: none;
 }
-
-
-/* ーーー 7日の場合 ーーー */
-/* "date-7日" の時は、7日用SVGを表示して、元の文字を隠す */
 .date-7日 .icon-7 {
   display: block; 
 }
@@ -463,12 +454,9 @@ body {
   display: none; 
 }
 .hit-tag .icon-svg {
-    width: 25px;  /* ★スマホ用に小さくしたい幅に変更 */
+    width: 25px;  
     height: auto;
   }
-
-/* ーーー 8日の場合 ーーー */
-/* "date-8日" の時は、8日用SVGを表示して、元の文字を隠す */
 .date-8日 .icon-8 {
   display: block; 
 }
