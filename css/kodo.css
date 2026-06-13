@@ -1,0 +1,59 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/kodo/kodo.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.stage-block {
+  margin-top: 25px; 
+}
+
+
+.stage-subtitle {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 20px; 
+  font-weight: 600;   
+  color: #222222;
+  margin: 0 0 10px 0;  
+  letter-spacing: 0.06em;
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .stage-block {
+    margin-top: 25px; 
+    }
+
+
+    .stage-subtitle {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 17px; 
+    font-weight: 500;   
+    color: #222222;
+    margin: 0 0 7px 0;  
+    letter-spacing: 0.06em;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .stage-block {
+    margin-top: 20px; 
+    }
+
+
+    .stage-subtitle {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 18px; 
+    font-weight: 500;   
+    color: #222222;
+    margin: 0 0 5px 0;  
+    letter-spacing: 0.03em;
+    }
+}
