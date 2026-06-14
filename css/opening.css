@@ -65,7 +65,7 @@ body{
   right: 100px;
   color: white;
   text-align: right;
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 500;
   z-index: 10;
 }
@@ -304,28 +304,41 @@ p.force-bullet {
     line-height: 30px;
     letter-spacing: 0.03em;
   }
-  .datetime-row {
-    display: flex;
-    align-items: center;
-  }
-
-.pc-date-box {
-    display: flex !important;      
+.datetime-section {
+    display: flex !important;
     flex-direction: column !important; 
-    align-items: flex-start;      
-    gap: -5px;                     
-    width: 120%;
+    align-items: flex-start !important; 
+    width: 100% !important;
 }
-.pc-date {
-    display: block;
-    width: 120%;                 
-    max-width: 500px;            
-    height: auto;                 
+
+.datetime-section {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
 }
-.sp-date-box {
-    display: none !important;     
+
+.datetime-section .pc-date-box {
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: -5px !important;              
+    width: 70% !important;
+}
+
+.datetime-section .pc-date {
+    display: block !important;
+    width: 70% !important;
+    max-width: 400px !important;      
+    height: auto !important;
+}
+.pc-date-box{
+    margin-bottom: 60px;
+}
+
+.datetime-section .sp-date-box {
+    display: none !important;
 }
 }
+
 
 
 
