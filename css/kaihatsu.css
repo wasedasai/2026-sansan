@@ -1,0 +1,448 @@
+body{
+  margin: 0 !important;
+}
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/Salon/卒業生サロン.jpeg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.hero-section.is-active {
+  opacity: 1;
+}
+
+.hero-overlay-blue {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('../img/okumastage/skybluegunya.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.hero-overlay-orange {
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  background-image: url('../img/okumastage/orangegunya.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(3px -3px 4px rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.hero-overlay-blue.is-animated,
+.hero-overlay-orange.is-animated {
+  opacity: 1;
+}
+
+.hero-title {
+  position: absolute;
+  top: 210px;
+  left: 100px;
+  color: white;
+  font-size: 64px;
+  font-weight: 500;
+}
+
+.hero-catchphrase {
+  position: absolute;
+  bottom: 130px;
+  right: 100px;
+  color: white;
+  text-align: right;
+  font-size: 52px;
+  font-weight: 500;
+  z-index: 10;
+}
+
+
+
+
+
+.content-container {
+  max-width: 80%;
+  margin: 80px auto;
+  padding: 0 0;
+}
+
+.info-section {
+  margin-bottom: 75px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;  
+  font-size: 35px;
+  color: #222222;
+  margin-bottom: 15px;
+  font-weight:lighter;
+  letter-spacing: 6%;
+  font-weight: 400;
+}
+
+.title-logo {
+  width: 45px;        
+  height: auto;
+  margin-right: 30px; 
+  object-fit: contain;
+}
+
+.section-text {
+  font-size: 20px;
+  color: #222222;
+  line-height: 33px;
+  letter-spacing: 0.06em;
+}
+
+.content-indent {
+  margin-left: 20px;
+}
+.datetime-section {
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    width: 100% !important;
+}
+
+.datetime-section {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+}
+
+.datetime-section .pc-date-box {
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: -5px !important;              
+    width: 48% !important;
+}
+
+.datetime-section .pc-date {
+    display: block !important;
+    width: 48% !important;
+    max-width: 400px !important;      
+    height: auto !important;
+}
+.pc-date-box{
+    margin-bottom: 60px;
+}
+
+.datetime-section .sp-date-box {
+    display: none !important;
+}
+
+
+.pdf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pdf-list li {
+  font-size: 20px;
+  color: #222222;
+  line-height: 33px;
+  letter-spacing: 0.06em;
+}
+
+.recruitment-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; 
+}
+.recruitment-section .button-container {
+    display: flex;
+    gap: 16px;         
+    margin-top: 10px;   
+}
+.recruitment-section .type-btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 170px;          
+    height: 54px;            
+    border-radius: 12px;    
+    font-size: 20px;        
+    font-weight: bold;       
+    background-color: #fbfbfb; 
+    box-sizing: border-box;
+}
+.recruitment-section .btn-light {
+    border: 2px solid rgb(240 150 138 / 50%); 
+    color: rgb(240 150 138 / 50%);           
+}
+.recruitment-section .btn-dark {
+    border: 3px solid #EF5350; 
+    color: #EF5350;           
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .recruitment-section .type-btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 170px;          
+    height: 54px;            
+    border-radius: 12px;    
+    font-size: 16px;        
+    font-weight: bold;       
+    background-color: #fbfbfb; 
+    box-sizing: border-box;
+}
+  .hero-section {
+    height: 80vh; 
+  }
+
+  .hero-overlay-blue {
+    top: -30px;
+    left: 0;  
+    width: 70%;
+    height: 90%;
+    background-image: url('../img/okumastage/skybluegunya.svg');
+    background-size: contain;
+    background-position: left top;
+    background-repeat: no-repeat;
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.2));
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+    position: absolute; 
+  }
+
+  .hero-overlay-orange {
+    bottom: -15px; 
+    width: 75%;
+    height: 70%;
+    background-image: url('../img/okumastage/orangegunya.svg');
+    background-size: contain;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    filter: drop-shadow(3px -3px 4px rgba(0, 0, 0, 0.25));
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+    position: absolute;
+  }
+
+  .hero-title {
+    position: absolute; 
+    top: 140px;  
+    left: 40px; 
+    color: white;
+    font-size: 40px;
+    line-height: normal; 
+    letter-spacing: 0.03em;
+  }
+
+  .hero-catchphrase {
+    position: absolute; 
+    bottom: 60px;   
+    right: 40px; 
+    color: white;
+    text-align: right;
+    font-size: 30px; 
+    line-height: normal; 
+    letter-spacing: 0.03em;
+    z-index: 10;
+  }
+
+
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .info-section {
+    margin-bottom: 40px;
+  }
+
+  .title-logo {
+    width: 35px;
+    margin-right: 20px;
+  }
+
+  .section-text {
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+  }
+
+  .datetime-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .pdf-list li {
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+  }
+
+.pc-date-box {
+    display: flex !important;      
+    flex-direction: column !important; 
+    align-items: flex-start;      
+    gap: -5px;                     
+    width: 120%;
+}
+.pc-date {
+    display: block;
+    width: 120%;                 
+    max-width: 500px;            
+    height: auto; 
+}                
+
+.sp-date-box {
+    display: none !important;     
+}
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+.recruitment-section .btn-light {
+    border: 1px solid rgb(240 150 138 / 50%); 
+    color: rgb(240 150 138 / 50%);           
+}
+.recruitment-section .btn-dark {
+    border: 2px solid #EF5350; 
+    color: #EF5350;           
+}
+.recruitment-section .type-btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 110px;          
+    height: 37px;            
+    border-radius: 12px;    
+    font-size: 14px;        
+    font-weight: bold;       
+    background-color: #fbfbfb; 
+    box-sizing: border-box;
+}
+.datetime-section .pc-date-box {
+        display: none !important;
+    }
+    
+    .datetime-section .sp-date-box {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: -5px !important;
+        width: 70% !important;
+    }
+    
+    .datetime-section .sp-date {
+        display: block !important;
+        width: 70% !important;
+        height: auto !important;
+    }
+.pc-date-box .sp-date {
+    display: none !important;
+}
+.sp-date-box {
+    margin-bottom: 20px;
+}
+    .hero-section {
+    height: 100vh; 
+  }
+
+  .hero-overlay-blue {
+    top: -10px;
+    left: 0;  
+    width: 100%;
+    height: 75%;
+    background-image: url('../img/okumastage/skybluegunya.svg');
+    background-size: contain;
+    background-position: left top;
+    background-repeat: no-repeat;
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.2));
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+    position: absolute; 
+  }
+
+  .hero-overlay-orange {
+    bottom: -3px; 
+    width: 100%;
+    height: 50%;
+    background-image: url('../img/okumastage/orangegunya.svg');
+    background-size: contain;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    filter: drop-shadow(3px -3px 4px rgba(0, 0, 0, 0.25));
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+    position: absolute;
+  }
+
+
+  .hero-title {
+    position: absolute; 
+    top: 100px;  
+    left: 20px; 
+    color: white;
+    font-size: 25px; 
+    line-height: normal; 
+    letter-spacing: 0.03em;
+  }
+
+
+  .hero-catchphrase {
+    position: absolute; 
+    bottom: 35px;   
+    right: 20px; 
+    color: white;
+    text-align: right;
+    font-size: 20px; 
+    line-height: normal; 
+    letter-spacing: 0.03em;
+    z-index: 10;
+  }
+
+
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .title-logo {
+    width: 27px;
+    margin-right: 15px;
+  }
+
+  .info-section {
+    margin-bottom: 35px;
+  }
+
+  .section-text {
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+  }
+
+
+  .pdf-list li {
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+  }
+
+  .nobreak {
+    display: inline-block;
+  }
+}
