@@ -22,8 +22,11 @@
 </head>
 <body>
         <div id="loading-screen" class="loading-screen">
-            <video id="loading-video" class="loading-video" src="img/index/loading.mp4" autoplay muted playsinline></video>
+            <video id="loading-video" class="loading-video" autoplay="true" muted="true" playsinline preload="auto">
+                <source src="img/index/loading.mp4" type="video/mp4">
+            </video>
         </div>
+
     <div class="hero-section">
         <video class="bg-video" autoplay loop muted playsinline poster="fallback-image.jpg">
             <source src="img/index/firstview.mp4" type="video/mp4">
