@@ -552,12 +552,10 @@ header {
   position: relative;
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
   margin-top: 100px;
   max-height: none !important; 
   height: auto !important;  
   color: #FBFBFB;
-  overflow: hidden;
 }
 
 .foot-container {
