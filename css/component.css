@@ -230,41 +230,7 @@ header {
   height: auto !important;  
   color: #FBFBFB;
 }
-.footer-bg {
-  position: absolute;
-  width: 100%;
-  height: auto; 
-  z-index: 1;
-}
-.footer-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  object-position: center bottom;
-  display: block;
-}
-.footer-inner {
-  z-index: 2;
-  margin: 0 auto; 
-  display: flex;
-  justify-content: space-between;
-}
-.footer-logo-area {
-  position: absolute;
-  width: 56.25%;
-  height: auto;
-  left: 0;
-  bottom: 20%;
-}
 
-.footer-logo-img {
-  max-width: 6000px; 
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0px;
-  padding: 0px;
-}
 .foot-container {
     position: relative;
     width: 100%;
@@ -276,33 +242,21 @@ header {
 }
 .foot-logo {
     position: absolute;
-    width: 100%;
+    width: 57%;
     left: -0.1%;
     bottom: 12%;
     z-index: 1;
 }
 .foot-logo img {
-    width: 57%;
+    width: 100%;
 }
 .footer-link {
     position: absolute;
-    right: 15%;
-    bottom: 9%;
-}
-.footer-links-area {
-  flex: 0 1 620px; /* 赤いエリアに収まるように右側の最大幅を制限 */
-  display: flex;
-  flex-direction: column;
-  gap: 36px; /* SNSアイコンとメニューの間の隙間 */
-  color: #ffffff; /* 文字色は白 */
+    width: 40%;
+    left: 57%;
+    bottom: 13%;
 }
 
-/* SNSアイコン */
-.footer-sns {
-  display: flex;
-  gap: 28px; /* アイコン同士の隙間 */
-  padding-left: 4px; /* メニューの文字の縦ラインと綺麗に揃えるための微調整 */
-}
 
 .sns-link img {
   width: 26px; /* アイコンの大きさをカンプ同様スマートに */
@@ -319,40 +273,55 @@ header {
 /* ナビゲーション（4列のグリッド） */
 .footer-nav {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 綺麗に4等分の横並び */
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 綺麗に4等分の横並び */
+  width: 100%;
+  gap: 13% 0px;
+  z-index: 10;
 }
-
-/* メニューの各大見出し（About, Event など） */
 .nav-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
-  margin: 0 0 16px 0;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
+  color: #FBFBFB;
+  margin-bottom: 7%;
 }
 
-/* メニューのリンク一覧 */
 .nav-block ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-.nav-block li {
-  margin-bottom: 12px; /* 縦のリンク同士の間隔 */
+.foot-firstchild {
+    margin-bottom: 4%;
 }
-
 .nav-block a {
-  color: rgba(255, 255, 255, 0.85); /* ほんの少しだけ透過させてデザインに馴染ませる */
+  color: rgba(255, 255, 255); /* ほんの少しだけ透過させてデザインに馴染ませる */
   text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 0.02em;
   transition: color 0.2s ease;
 }
 
 /* マウスホバーでくっきり白く光らせる */
 .nav-block a:hover {
   color: #ffffff;
+}
+.footer-sns {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 5%;
+}
+
+.sns-link img {
+  height: 39px;
+  width: auto;
+}
+.X-foot svg {
+    margin: 0 35px;
+}
+.foot-pc {
+    display: block;
+}
+.foot-sp {
+    display: none;
 }
 /* PC（ホバーが使える端末）だけ、マウスを乗せた時に白くする */
 @media (hover: hover) {
@@ -365,15 +334,6 @@ header {
 }
 
 /* SNSアイコン共通 */
-.footer-sns {
-  display: flex;
-  gap: 24px;
-}
-
-.sns-link img {
-  width: 28px;
-  height: auto;
-}
 
 /* 色の変化と回転を同時に行うアニメーション */
 @keyframes wipeAndRotate {
@@ -391,48 +351,7 @@ header {
     }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-      .footer {
-    min-height: auto; /* スマホはコンテンツの長さに合わせる */
-  }
 
-  .footer-inner {
-    flex-direction: column; /* 上から下に縦並び */
-    align-items: flex-start;
-    padding: 100px 24px 40px; /* 上の波を避ける余白 */
-  }
-
-  .footer-logo-area {
-    margin-bottom: 48px; /* ロゴとメニューの間隔 */
-  }
-
-  .footer-logo-img {
-    max-width: 280px; /* スマホに合わせてロゴを少し小さく */
-    width: 100%;
-  }
-
-  .footer-links-area {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  /* メニューを縦1列に並べる */
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .nav-block h3 {
-    font-size: 18px;
-  }
-
-  .nav-block a {
-    font-size: 15px;
-    padding: 4px 0; /* タップしやすいように少し上下に隙間を作る */
-    display: inline-block;
-  }
 p {
     font-size: 16px;
     letter-spacing: 0.03em;
@@ -624,6 +543,114 @@ header {
     font-size: 25px;
     letter-spacing: 0.03em;
 }
+.footer {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  margin-top: 100px;
+  max-height: none !important; 
+  height: auto !important;  
+  color: #FBFBFB;
+}
+
+.foot-container {
+    position: relative;
+    width: 100%;
+}
+.footer-back {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.foot-logo {
+    position: absolute;
+    width: 89.16%;
+    left: 1.5%;
+    bottom: 52%;
+    z-index: 1;
+}
+.foot-logo img {
+    width: 100%;
+}
+.footer-link {
+    position: absolute;
+    width: 80%;
+    height: fit-content;
+    left: 10%;
+    bottom: auto;
+    top: 55%;
+}
+
+
+.sns-link img {
+  width: 24px; /* アイコンの大きさをカンプ同様スマートに */
+  height: auto;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+/* マウスホバーで上品に不透明度を下げる */
+.sns-link:hover img {
+  opacity: 0.7;
+}
+
+/* ナビゲーション（4列のグリッド） */
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 綺麗に4等分の横並び */
+  width: 100%;
+  height: auto;
+  gap: 13% 0px;
+  z-index: 10;
+}
+.nav-title {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #FBFBFB;
+  margin-bottom: 7%;
+}
+
+.nav-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.foot-firstchild {
+    margin-bottom: 4%;
+}
+.nav-block a {
+  color: rgba(255, 255, 255); /* ほんの少しだけ透過させてデザインに馴染ませる */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.foot-pc {
+    display: block;
+}
+.foot-sp {
+    display: none;
+}
+/* マウスホバーでくっきり白く光らせる */
+.nav-block a:hover {
+  color: #ffffff;
+}
+.footer-sns {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 0;
+  margin-top: 10%;
+}
+.sns-link img {
+  width: 28px;
+  height: auto;
+}
+.foot-pc {
+    display: none;
+  }
+  .foot-sp {
+    display: block;
+  }
 }
 @media (max-width: 768px) {
 p {
@@ -827,4 +854,118 @@ header {
     font-size: 18px;
     letter-spacing: 0.03em;
 }
+.footer {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  margin-top: 100px;
+  max-height: none !important; 
+  height: auto !important;  
+  color: #FBFBFB;
+}
+
+.foot-container {
+    position: relative;
+    width: 100%;
+}
+.footer-back {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.foot-logo {
+    position: absolute;
+    width: 89.16%;
+    left: 1.5%;
+    bottom: 52%;
+    z-index: 1;
+}
+.foot-logo img {
+    width: 100%;
+}
+.footer-link {
+    position: absolute;
+    width: 80%;
+    height: fit-content;
+    left: 10%;
+    bottom: auto;
+    top: 51%;
+}
+.sns-link img {
+  width: 24px; /* アイコンの大きさをカンプ同様スマートに */
+  height: auto;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+/* マウスホバーで上品に不透明度を下げる */
+.sns-link:hover img {
+  opacity: 0.7;
+}
+
+/* ナビゲーション（4列のグリッド） */
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 綺麗に4等分の横並び */
+  width: 100%;
+  height: auto;
+  gap: 13% 0px;
+  z-index: 10;
+}
+.nav-title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #FBFBFB;
+  margin-bottom: 7%;
+}
+
+.nav-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.foot-firstchild {
+    margin-bottom: 4%;
+}
+.nav-block a {
+  color: rgba(255, 255, 255); /* ほんの少しだけ透過させてデザインに馴染ませる */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.foot-pc {
+    display: block;
+}
+.foot-sp {
+    display: none;
+}
+/* マウスホバーでくっきり白く光らせる */
+.nav-block a:hover {
+  color: #ffffff;
+}
+.footer-sns {
+  display: flex;
+  margin-bottom: auto;
+  margin-top: 20%;
+}
+.insta-foot svg {
+    height: 30px;
+    width: auto;
+}
+.X-foot svg {
+    margin: 0 25px;
+    width: 25px;
+    height: auto;
+}
+.youtube-foot svg {
+    height: 25px;
+    width: auto;
+}
+.foot-pc {
+    display: none;
+  }
+  .foot-sp {
+    display: block;
+  }
 }

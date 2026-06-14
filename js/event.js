@@ -110,8 +110,8 @@ search.addWidgets([
           <div class="hit-tags">
               <span class="hit-tag">{{企画}}</span>
               <span class="hit-tag date-{{日時}}">
-                <span class="custom-date custom-7">11<span>月</span>7<span>日</span></span>
-                <span class="custom-date custom-8">11<span>月</span>8<span>日</span></span>
+                <span class="custom-date custom-7">11<span class="small-text">月</span>7<span class="small-text">日</span></span>
+                <span class="custom-date custom-8">11<span class="small-text">月</span>8<span class="small-text">日</span></span>
                 <span class="custom-date normal-date">{{日時}}</span>
               </span>
               <span class="hit-tag tag-{{募集}}">募集{{募集}}</span>

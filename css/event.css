@@ -216,12 +216,19 @@ body {
 .date-7日 .custom-7 {
   display: inline-flex;
   align-items: baseline;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 /* 5. 「8日」のときは custom-8 を表示 */
 .date-8日 .custom-8 {
   display: inline-flex;
   align-items: baseline;
+  font-size: 15px;
+  line-height: 20px;
+}
+.small-text {
+  font-size: 10px;
 }
 .tag-不可 {
   display: none;
