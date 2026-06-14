@@ -1,4 +1,4 @@
-// 目標日時を設定する
+// ===== 1. 目標日時を設定する（カウントダウン） =====
 const targetDate = new Date("2026-06-30T23:59:59").getTime();
 
 const updateCountdown = () => {
@@ -22,95 +22,61 @@ const updateCountdown = () => {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// --- 目標日時等のコードはそのまま ---
 
-// ===== 横スクロール（参加団体・参加者企画） =====
-const setupScroll1 = () => {
-  const section = document.querySelector('.sansanplan');
-  const stickyWrapper = document.querySelector('.sticky-wrapper');
-  const scrollContent = document.querySelector('.scroll-content');
-
-  if (!section || !stickyWrapper || !scrollContent) return;
-
-  // 1. 横に動かす中身の「本当の幅」を取得
-  const contentWidth = scrollContent.scrollWidth;
-  // 2. 画面の幅を取得
-  const windowWidth = window.innerWidth;
-  // 3. 【重要】親セクションの高さを、「横に動かす距離 ＋ 画面の高さ」に設定
-  // こうすることで、横スクロールが終わるのと同時に縦セクションも終わります。
-  section.style.height = `${(contentWidth - windowWidth) + window.innerHeight}px`;
-
-  // スクロールイベント
-  const handleScroll = () => {
-    const rect = section.getBoundingClientRect();
-    const stickyHeight = stickyWrapper.offsetHeight;
-    
-    // 【修正点】固定位置をスマホかPCかで分ける
-    const stickyOffset = windowWidth <= 768 ? 200 : 500;
-
-    const totalScrollDistance = rect.height - window.innerHeight; // 高さを合わせているので計算が変わります
-    const currentScrollProgress = -rect.top + stickyOffset;
-
-    if (currentScrollProgress >= 0 && currentScrollProgress <= totalScrollDistance) {
-      scrollContent.style.transform = `translateX(-${currentScrollProgress}px)`; // 比率ではなくそのままpxで動かす
-    } else if (currentScrollProgress < 0) {
-      scrollContent.style.transform = 'translateX(0px)';
-    } else if (currentScrollProgress > totalScrollDistance) {
-      scrollContent.style.transform = `translateX(-${totalScrollDistance}px)`;
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll);
-};
-
-// ===== 横スクロール（運営スタッフ企画） =====
-// ※ 上記と全く同じ構造で、クラス名だけ2用のものに変えます
-const setupScroll2 = () => {
-  const section = document.querySelector('.staffplan');
-  const stickyWrapper = document.querySelector('.sticky-wrapper2');
-  const scrollContent = document.querySelector('.scroll-content2');
+// ===== 2. 横スクロール（参加団体・運営スタッフ企画 統合版） =====
+const setupScroll = (sectionSelector, wrapperSelector, contentSelector, pcOffset, spOffset) => {
+  const section = document.querySelector(sectionSelector);
+  const stickyWrapper = document.querySelector(wrapperSelector);
+  const scrollContent = document.querySelector(contentSelector);
 
   if (!section || !stickyWrapper || !scrollContent) return;
 
-  const contentWidth = scrollContent.scrollWidth;
-  const windowWidth = window.innerWidth;
-  section.style.height = `${(contentWidth - windowWidth) + window.innerHeight}px`;
+  // 高さを計算・設定する処理（リサイズ時にもこれだけを呼び出す）
+  const updateLayout = () => {
+    const contentWidth = scrollContent.scrollWidth;
+    const windowWidth = window.innerWidth;
+    section.style.height = `${(contentWidth - windowWidth) + window.innerHeight}px`;
+  };
 
+  // 初回レイアウト計算
+  updateLayout();
+
+  // スクロール処理（requestAnimationFrameでカクつき防止）
+  let ticking = false;
   const handleScroll = () => {
-    const rect = section.getBoundingClientRect();
-    
-    const stickyOffset = windowWidth <= 768 ? 400 : 500;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const windowWidth = window.innerWidth;
+        const stickyOffset = windowWidth <= 768 ? spOffset : pcOffset;
+        
+        const rect = section.getBoundingClientRect();
+        const totalScrollDistance = scrollContent.scrollWidth - windowWidth; // 移動できる最大の横幅
+        
+        // オフセットを考慮して進行度を計算
+        const currentScrollProgress = -rect.top + stickyOffset;
 
-    const totalScrollDistance = rect.height - window.innerHeight; 
-    const currentScrollProgress = -rect.top + stickyOffset;
+        // 範囲内に収める処理
+        const translateX = Math.max(0, Math.min(currentScrollProgress, totalScrollDistance));
+        scrollContent.style.transform = `translateX(-${translateX}px)`;
 
-    if (currentScrollProgress >= 0 && currentScrollProgress <= totalScrollDistance) {
-      scrollContent.style.transform = `translateX(-${currentScrollProgress}px)`;
-    } else if (currentScrollProgress < 0) {
-      scrollContent.style.transform = 'translateX(0px)';
-    } else if (currentScrollProgress > totalScrollDistance) {
-      scrollContent.style.transform = `translateX(-${totalScrollDistance}px)`;
+        ticking = false;
+      });
+      ticking = true;
     }
   };
 
+  // イベント登録は初回のみ！
   window.addEventListener('scroll', handleScroll);
+  // リサイズ時は「高さの再計算」だけを行う
+  window.addEventListener('resize', updateLayout);
 };
 
 // 実行
-setupScroll1();
-setupScroll2();
-
-// 画面サイズが変わった時に高さを再計算する
-window.addEventListener('resize', () => {
-    setupScroll1();
-    setupScroll2();
-});
-
-window.scrollTo(0, 0);
+setupScroll('.sansanplan', '.sticky-wrapper', '.scroll-content', 500, 200);
+setupScroll('.staffplan', '.sticky-wrapper2', '.scroll-content2', 500, 400);
 
 
-
-// ===== 初回のみ表示するローディング画面の処理（Safari完全攻略版） =====
+// ===== 3. 初回のみ表示するローディング画面の処理（Safari完全攻略版） =====
 (() => {
   const initLoading = () => {
     const loadingScreen = document.getElementById('loading-screen');
@@ -148,8 +114,6 @@ window.scrollTo(0, 0);
       }
 
       // 【超重要】Safariの気まぐれに左右されない独立したタイマー
-      // 3.5秒後に確実にフェードアウトを開始します。
-      // もっと長くしたい場合は、ここの「3500」を「4000」や「4500」に増やしてください！
       setTimeout(() => {
         hideLoading();
       }, 3500); 
@@ -169,36 +133,27 @@ window.scrollTo(0, 0);
 })();
 
 
+// ===== 4. スクロール連動のフェードイン演出（Intersection Observer） =====
 
-
-// 1. 全体を包む親の箱（.flow-box）を取得
+// --- flow-box の表示 ---
 const flowBox = document.querySelector('.flow-box');
 
-// 親の箱が存在するときだけ動かす（エラー防止）
 if (flowBox) {
-  // 2. 画面に入ったときに実行する設定を作る
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // .flow-box が画面の中に入ったら...
       if (entry.isIntersecting) {
-        // 親の箱に 'is-visible' というクラスを追加する
         entry.target.classList.add('is-visible');
-        
-        // 一度発動したら監視を解除する
         observer.unobserve(entry.target);
       }
     });
   }, {
-    // 3. オプション設定：箱の上部が「20%」見えたら発動する
     threshold: 0.2
   });
 
-  // 4. 監視システムをスタート！
   observer.observe(flowBox);
 }
 
-
-// ===== 代表挨拶セクションの背景色変更＆文字浮かび上がり演出 =====
+// --- 代表挨拶セクションの背景色変更＆文字浮かび上がり演出 ---
 const greetingText = document.querySelector('.greeting-text');
 const greetSection = document.querySelector('.represent-greet');
 
@@ -206,19 +161,44 @@ if (greetingText && greetSection) {
   const greetingObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // 30% 画面に入ったらクラスを追加
         greetSection.classList.add('is-active');
         greetingText.classList.add('is-visible');
       } else {
-        // 画面から外れたらクラスを外して元に戻す（TriOrb風の連動演出）
         greetSection.classList.remove('is-active');
         greetingText.classList.remove('is-visible');
       }
     });
   }, {
-    // 30%見えたら発動
     threshold: 0.3
   });
 
   greetingObserver.observe(greetingText);
 }
+
+// --- FAQの順番フェードイン ---
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    let delayCount = 0; 
+
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('is-visible');
+        }, delayCount * 180); 
+        
+        delayCount++; 
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -10% 0px', 
+    threshold: 0
+  });
+
+  faqItems.forEach(item => {
+    observer.observe(item);
+  });
+});
