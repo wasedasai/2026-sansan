@@ -196,3 +196,29 @@ if (flowBox) {
   // 4. 監視システムをスタート！
   observer.observe(flowBox);
 }
+
+
+// ===== 代表挨拶セクションの背景色変更＆文字浮かび上がり演出 =====
+const greetingText = document.querySelector('.greeting-text');
+const greetSection = document.querySelector('.represent-greet');
+
+if (greetingText && greetSection) {
+  const greetingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 30% 画面に入ったらクラスを追加
+        greetSection.classList.add('is-active');
+        greetingText.classList.add('is-visible');
+      } else {
+        // 画面から外れたらクラスを外して元に戻す（TriOrb風の連動演出）
+        greetSection.classList.remove('is-active');
+        greetingText.classList.remove('is-visible');
+      }
+    });
+  }, {
+    // 30%見えたら発動
+    threshold: 0.3
+  });
+
+  greetingObserver.observe(greetingText);
+}
