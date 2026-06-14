@@ -65,11 +65,15 @@ body{
   right: 100px;
   color: white;
   text-align: right;
-  font-size: 64px;
   font-weight: 500;
   z-index: 10;
 }
-
+.hero-catchphrase2 {
+ font-size: 64px;
+}
+.hero-catchphrase3 {
+ font-size: 54px;
+}
 
 
 
@@ -255,12 +259,16 @@ body{
     right: 40px; 
     color: white;
     text-align: right;
-    font-size: 37px; 
     line-height: normal; 
     letter-spacing: 0.03em;
     z-index: 10;
   }
-
+.hero-catchphrase2 {
+ font-size: 40px;
+}
+.hero-catchphrase3 {
+ font-size: 35px;
+}
 
   .section-title {
     font-size: 26px;
@@ -415,6 +423,12 @@ body{
     letter-spacing: 0.03em;
     z-index: 10;
   }
+  .hero-catchphrase2 {
+ font-size: 30px;
+}
+.hero-catchphrase3 {
+ font-size: 23px;
+}
 
 
   .section-title {
