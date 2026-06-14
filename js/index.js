@@ -110,61 +110,64 @@ window.scrollTo(0, 0);
 
 
 
-// ===== 初回のみ表示するローディング画面の処理（修正版） =====
-document.addEventListener('DOMContentLoaded', () => {
+// ===== 初回のみ表示するローディング画面の処理（完全確定版） =====
+(() => {
+  const initLoading = () => {
     const loadingScreen = document.getElementById('loading-screen');
     const loadingVideo = document.getElementById('loading-video');
 
     if (!loadingScreen) return;
 
-    // sessionStorageを使って「このタブでの初回アクセスか」をチェック
-    const isFirstVisit = !sessionStorage.getItem('visited_top_page');
-
-    // 画面をフェードアウトさせて消す共通関数
+    // 画面をフェードアウトさせて消去する関数
     const hideLoading = () => {
-        if (!loadingScreen.classList.contains('is-hidden')) {
-            loadingScreen.classList.add('is-hidden');
-            
-            // フェードアウト（0.5秒）が終わる頃にHTMLから完全に削除
-            setTimeout(() => {
-                loadingScreen.remove();
-            }, 500); 
-        }
+      if (!loadingScreen.classList.contains('is-hidden')) {
+        loadingScreen.classList.add('is-hidden');
+        setTimeout(() => {
+          loadingScreen.remove();
+        }, 500);
+      }
     };
 
+    // 2回目以降のアクセスかチェック（sessionStorage）
+    const isFirstVisit = !sessionStorage.getItem('visited_top_page');
+
     if (isFirstVisit) {
-        // 【初回アクセスの場合】訪問済みの証をセット
-        sessionStorage.setItem('visited_top_page', 'true');
+      // 初回訪問の記録を保存
+      sessionStorage.setItem('visited_top_page', 'true');
 
-        if (loadingVideo) {
-            // Mac・iOS対策：音声ミュートを念押しし、JSから再生をトリガーする
-            loadingVideo.muted = true;
-            
-            loadingVideo.play().catch(error => {
-                // Macなどで自動再生が完全にブロックされた場合の安全装置
-                console.log("自動再生がブロックされたため、強制解除します:", error);
-                hideLoading();
-            });
+      if (loadingVideo) {
+        // Mac・iOS向けの自動再生対策を徹底
+        loadingVideo.muted = true;
+        loadingVideo.playsInline = true;
+        
+        // JS側から確実に1回だけ再生させる命令
+        loadingVideo.play().catch((err) => {
+          console.log("自動再生ブロックを検知、強制スキップ:", err);
+          hideLoading();
+        });
 
-            // 動画が最後まで再生されたら非表示にする
-            loadingVideo.addEventListener('ended', () => {
-                hideLoading();
-            });
+        // 動画が終了（ended）したら画面を消す
+        loadingVideo.addEventListener('ended', hideLoading);
 
-            // 万が一動画が途中でフリーズした時のためのバックアップ安全装置（4秒後に強制解除）
-            setTimeout(() => {
-                hideLoading();
-            }, 4000);
-        } else {
-            hideLoading();
-        }
-
+        // 【安全装置】万が一のフリーズ対策（動画の長さ＋αとして4秒後に強制解除）
+        setTimeout(hideLoading, 4000);
+      } else {
+        hideLoading();
+      }
     } else {
-        // 【2回目以降のアクセスの場合】一瞬も見せないように即座に非表示にして削除
-        loadingScreen.style.display = 'none';
-        loadingScreen.remove();
+      // 2回目以降は一瞬も見せずに即座に完全消去
+      loadingScreen.style.display = 'none';
+      loadingScreen.remove();
     }
-});
+  };
+
+  // ページの読み込みタイミングに合わせて確実に発動させる
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLoading);
+  } else {
+    initLoading();
+  }
+})();
 
 
 
