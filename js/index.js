@@ -108,37 +108,66 @@ window.addEventListener('resize', () => {
 
 window.scrollTo(0, 0);
 
-// ===== 初回のみ表示するローディング画面の処理 =====
+
+
+// ===== 初回のみ表示するローディング画面の処理（修正版） =====
 document.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
     const loadingVideo = document.getElementById('loading-video');
 
+    if (!loadingScreen) return;
+
     // sessionStorageを使って「このタブでの初回アクセスか」をチェック
     const isFirstVisit = !sessionStorage.getItem('visited_top_page');
 
+    // 画面をフェードアウトさせて消す共通関数
+    const hideLoading = () => {
+        if (!loadingScreen.classList.contains('is-hidden')) {
+            loadingScreen.classList.add('is-hidden');
+            
+            // フェードアウト（0.5秒）が終わる頃にHTMLから完全に削除
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 500); 
+        }
+    };
+
     if (isFirstVisit) {
-        // 初回アクセスの場合は「訪問済み」の証をセットする
+        // 【初回アクセスの場合】訪問済みの証をセット
         sessionStorage.setItem('visited_top_page', 'true');
 
-        // 動画が最後まで再生されたら（endedイベント）非表示にする
         if (loadingVideo) {
-            loadingVideo.addEventListener('ended', () => {
-                loadingScreen.classList.add('is-hidden');
-                
-                // フェードアウトが終わる頃（0.5秒後）にHTMLから完全に削除
-                setTimeout(() => {
-                    loadingScreen.remove();
-                }, 500); 
+            // Mac・iOS対策：音声ミュートを念押しし、JSから再生をトリガーする
+            loadingVideo.muted = true;
+            
+            loadingVideo.play().catch(error => {
+                // Macなどで自動再生が完全にブロックされた場合の安全装置
+                console.log("自動再生がブロックされたため、強制解除します:", error);
+                hideLoading();
             });
+
+            // 動画が最後まで再生されたら非表示にする
+            loadingVideo.addEventListener('ended', () => {
+                hideLoading();
+            });
+
+            // 万が一動画が途中でフリーズした時のためのバックアップ安全装置（4秒後に強制解除）
+            setTimeout(() => {
+                hideLoading();
+            }, 4000);
+        } else {
+            hideLoading();
         }
+
     } else {
-        // 2回目以降のアクセスの場合は、ローディング画面を最初から消しておく
-        if (loadingScreen) {
-            loadingScreen.style.display = 'none';
-            loadingScreen.remove();
-        }
+        // 【2回目以降のアクセスの場合】一瞬も見せないように即座に非表示にして削除
+        loadingScreen.style.display = 'none';
+        loadingScreen.remove();
     }
 });
+
+
+
 
 // 1. 全体を包む親の箱（.flow-box）を取得
 const flowBox = document.querySelector('.flow-box');
