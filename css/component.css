@@ -227,14 +227,13 @@ header {
   overflow: hidden;
   margin-top: 100px;
   max-height: none !important; 
-  min-height: 1000px; 
   height: auto !important;  
   color: #FBFBFB;
 }
 .footer-bg {
   position: absolute;
   width: 100%;
-  height: 100%; 
+  height: auto; 
   z-index: 1;
 }
 .footer-bg img {
@@ -245,14 +244,17 @@ header {
   display: block;
 }
 .footer-inner {
-  position: relative;
   z-index: 2;
   margin: 0 auto; 
   display: flex;
   justify-content: space-between;
 }
 .footer-logo-area {
-  flex: 0 1 auto;
+  position: absolute;
+  width: 56.25%;
+  height: auto;
+  left: 0;
+  bottom: 20%;
 }
 
 .footer-logo-img {
@@ -262,6 +264,30 @@ header {
   display: block;
   margin: 0px;
   padding: 0px;
+}
+.foot-container {
+    position: relative;
+    width: 100%;
+}
+.footer-back {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.foot-logo {
+    position: absolute;
+    width: 100%;
+    left: -0.1%;
+    bottom: 12%;
+    z-index: 1;
+}
+.foot-logo img {
+    width: 57%;
+}
+.footer-link {
+    position: absolute;
+    right: 15%;
+    bottom: 9%;
 }
 .footer-links-area {
   flex: 0 1 620px; /* 赤いエリアに収まるように右側の最大幅を制限 */

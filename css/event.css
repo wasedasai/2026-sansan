@@ -67,6 +67,18 @@ body {
   font-size: 20px;
   font-weight: 500;
 }
+.custom-date-text {
+  font-size: 21px;
+  line-height: 28px;
+  letter-spacing: normal;
+}
+.date-unit {
+  font-size: 16px;
+  margin: 0 2px;
+}
+.normal-text {
+  font-size: 20px;
+}
 .ais-RefinementList-labelText {
   display: inline-block;
   padding: 6px 16px;
@@ -185,21 +197,31 @@ body {
   display: inline-flex;
   align-items: center;
 }
-
-.icon-svg {
+.custom-date {
   display: none;
 }
-.date-7日 .icon-7 {
-  display: block; 
+
+/* 2. 基本は「{{日時}} (normal-date)」を表示する */
+.normal-date {
+  display: inline;
 }
-.date-7日 .date-text {
-  display: none; 
+
+/* 3. ただし「7日」か「8日」のときだけ、normal-dateを消す */
+.date-7日 .normal-date,
+.date-8日 .normal-date {
+  display: none;
 }
-.date-8日 .icon-8 {
-  display: block; 
+
+/* 4. 「7日」のときは custom-7 を表示 */
+.date-7日 .custom-7 {
+  display: inline-flex;
+  align-items: baseline;
 }
-.date-8日 .date-text {
-  display: none; 
+
+/* 5. 「8日」のときは custom-8 を表示 */
+.date-8日 .custom-8 {
+  display: inline-flex;
+  align-items: baseline;
 }
 .tag-不可 {
   display: none;
