@@ -1,6 +1,9 @@
 body{
   margin: 0 !important;
 }
+.kikaku-title {
+    font-weight: 500; 
+}
 .hero-section {
   position: relative;
   width: 100%;
