@@ -790,6 +790,9 @@ body.is-immersive .represent-greet .top-text {
     visibility: hidden;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+body{
+    margin: 0%;
+}
 header {
     margin: 15px auto auto auto;
     padding: 8px 24px 8px 6px;
@@ -956,6 +959,16 @@ section {
 .greeting-text span {
     font-size: 30px;
     line-height: auto;
+    width: 100%;
+}
+.greeting-text{
+    width: 100%;
+}
+.greeting-text  img {
+display: none;
+}
+.represent-greet{
+    margin: 0%;
 }
 .news {
     width: auto;
@@ -1128,6 +1141,16 @@ section {
   white-space: normal;
   text-align: center;
   width: 250px;
+}
+.pc{
+    display: none;
+}
+.hero-section-content {
+    position: absolute;
+    z-index: 1;
+    left: 30px;
+    bottom: auto;
+    top: 60px;
 }
 }
 @media (max-width: 768px) {
@@ -1311,7 +1334,7 @@ section {
     z-index: 1;
     left: 30px;
     bottom: auto;
-    top: 60px;
+    top: 30px;
 }
 .hero-section-content h1 {
     font-size: 30px;
@@ -1321,21 +1344,19 @@ section {
 }
 .countdown-wrapper {
     position: absolute;
-    bottom: 8px;
-    right: 0px;
     z-index: 1;
 }
 .countdown-svg {
     position: absolute;
-    height: 168.2px;
-    bottom: 0;
-    right: 0;
+    height: 200px;
+    top: 15%;
+    left: 28%;
     z-index: 2;
 }
 .countdown-contents {
     position: relative;
-    top: 55%;
-    left: 36%;
+    top: 35%;
+    left: 72%;
     transform: translate(-57%, -30%);
     text-align: center;
     z-index: 3;

@@ -113,33 +113,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
     const loadingVideo = document.getElementById('loading-video');
 
-    // sessionStorageを使って「このタブでの初回アクセスか」をチェック
+    if (!loadingScreen) return; // ローディング画面がないページでのエラー防止
+
     const isFirstVisit = !sessionStorage.getItem('visited_top_page');
 
     if (isFirstVisit) {
-        // 初回アクセスの場合は「訪問済み」の証をセットする
         sessionStorage.setItem('visited_top_page', 'true');
 
-        // 動画が最後まで再生されたら（endedイベント）非表示にする
         if (loadingVideo) {
-            loadingVideo.addEventListener('ended', () => {
+            // ローディング画面を消す処理を関数化
+            const hideLoading = () => {
                 loadingScreen.classList.add('is-hidden');
-                
-                // フェードアウトが終わる頃（0.5秒後）にHTMLから完全に削除
                 setTimeout(() => {
-                    loadingScreen.remove();
-                }, 500); 
-            });
-        }
-    } else {
-        // 2回目以降のアクセスの場合は、ローディング画面を最初から消しておく
-        if (loadingScreen) {
-            loadingScreen.style.display = 'none';
+                    if (loadingScreen.parentNode) { // エラー防止
+                        loadingScreen.remove();
+                    }
+                }, 500);
+            };
+
+            // パターン1：動画が正常に最後まで再生されたら消す（元の処理）
+            loadingVideo.addEventListener('ended', hideLoading);
+
+            // パターン2：動画のパス間違い等でエラーになったらすぐ消す
+            loadingVideo.addEventListener('error', hideLoading);
+
+            // パターン3：【重要】強制終了のタイマー（フェイルセーフ）
+            // 動画の自動再生がブロックされた場合に備え、〇秒後には強制的にローディングを消す
+            // ※動画の秒数＋1〜2秒くらいに設定してください。（例: 6000 = 6秒）
+            setTimeout(hideLoading, 6000);
+
+        } else {
+            // ビデオ要素自体がない場合はすぐ消す
             loadingScreen.remove();
         }
+    } else {
+        loadingScreen.style.display = 'none';
+        loadingScreen.remove();
     }
 });
-
 // 1. 全体を包む親の箱（.flow-box）を取得
 const flowBox = document.querySelector('.flow-box');
 
