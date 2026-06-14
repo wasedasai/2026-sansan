@@ -108,49 +108,67 @@ window.addEventListener('resize', () => {
 
 window.scrollTo(0, 0);
 
-// ===== 初回のみ表示するローディング画面の処理 =====
+
+
+// ===== 初回のみ表示するローディング画面の処理（修正版） =====
 document.addEventListener('DOMContentLoaded', () => {
     const loadingScreen = document.getElementById('loading-screen');
     const loadingVideo = document.getElementById('loading-video');
 
-    if (!loadingScreen) return; // ローディング画面がないページでのエラー防止
+    if (!loadingScreen) return;
 
+    // sessionStorageを使って「このタブでの初回アクセスか」をチェック
     const isFirstVisit = !sessionStorage.getItem('visited_top_page');
 
+    // 画面をフェードアウトさせて消す共通関数
+    const hideLoading = () => {
+        if (!loadingScreen.classList.contains('is-hidden')) {
+            loadingScreen.classList.add('is-hidden');
+            
+            // フェードアウト（0.5秒）が終わる頃にHTMLから完全に削除
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 500); 
+        }
+    };
+
     if (isFirstVisit) {
+        // 【初回アクセスの場合】訪問済みの証をセット
         sessionStorage.setItem('visited_top_page', 'true');
 
         if (loadingVideo) {
-            // ローディング画面を消す処理を関数化
-            const hideLoading = () => {
-                loadingScreen.classList.add('is-hidden');
-                setTimeout(() => {
-                    if (loadingScreen.parentNode) { // エラー防止
-                        loadingScreen.remove();
-                    }
-                }, 500);
-            };
+            // Mac・iOS対策：音声ミュートを念押しし、JSから再生をトリガーする
+            loadingVideo.muted = true;
+            
+            loadingVideo.play().catch(error => {
+                // Macなどで自動再生が完全にブロックされた場合の安全装置
+                console.log("自動再生がブロックされたため、強制解除します:", error);
+                hideLoading();
+            });
 
-            // パターン1：動画が正常に最後まで再生されたら消す（元の処理）
-            loadingVideo.addEventListener('ended', hideLoading);
+            // 動画が最後まで再生されたら非表示にする
+            loadingVideo.addEventListener('ended', () => {
+                hideLoading();
+            });
 
-            // パターン2：動画のパス間違い等でエラーになったらすぐ消す
-            loadingVideo.addEventListener('error', hideLoading);
-
-            // パターン3：【重要】強制終了のタイマー（フェイルセーフ）
-            // 動画の自動再生がブロックされた場合に備え、〇秒後には強制的にローディングを消す
-            // ※動画の秒数＋1〜2秒くらいに設定してください。（例: 6000 = 6秒）
-            setTimeout(hideLoading, 6000);
-
+            // 万が一動画が途中でフリーズした時のためのバックアップ安全装置（4秒後に強制解除）
+            setTimeout(() => {
+                hideLoading();
+            }, 4000);
         } else {
-            // ビデオ要素自体がない場合はすぐ消す
-            loadingScreen.remove();
+            hideLoading();
         }
+
     } else {
+        // 【2回目以降のアクセスの場合】一瞬も見せないように即座に非表示にして削除
         loadingScreen.style.display = 'none';
         loadingScreen.remove();
     }
 });
+
+
+
+
 // 1. 全体を包む親の箱（.flow-box）を取得
 const flowBox = document.querySelector('.flow-box');
 
