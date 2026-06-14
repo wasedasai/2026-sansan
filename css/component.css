@@ -2,6 +2,8 @@ body {
     background-color: #FBFBFB;
     overflow-x: hidden;
     font-family: "Zen Kaku Gothic New", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 h1, h2, h3, h4 {
     margin: 0;
@@ -543,11 +545,13 @@ header {
     font-size: 25px;
     letter-spacing: 0.03em;
 }
+.footer-all {
+    overflow: hidden;
+}
 .footer {
   position: relative;
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
   margin-top: 100px;
   max-height: none !important; 
   height: auto !important;  
@@ -562,6 +566,7 @@ header {
     width: 100%;
     height: auto;
     display: block;
+    margin-bottom: -150px;
 }
 .foot-logo {
     position: absolute;
@@ -639,7 +644,7 @@ header {
   display: flex;
   gap: 24px;
   margin-bottom: 0;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 .sns-link img {
   width: 28px;
