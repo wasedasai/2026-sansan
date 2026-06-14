@@ -110,7 +110,7 @@ window.scrollTo(0, 0);
 
 
 
-// ===== 初回のみ表示するローディング画面の処理（完全確定版） =====
+// ===== 初回のみ表示するローディング画面の処理（Safari完全攻略版） =====
 (() => {
   const initLoading = () => {
     const loadingScreen = document.getElementById('loading-screen');
@@ -118,7 +118,7 @@ window.scrollTo(0, 0);
 
     if (!loadingScreen) return;
 
-    // 画面をフェードアウトさせて消去する関数
+    // 画面を消す関数
     const hideLoading = () => {
       if (!loadingScreen.classList.contains('is-hidden')) {
         loadingScreen.classList.add('is-hidden');
@@ -128,32 +128,32 @@ window.scrollTo(0, 0);
       }
     };
 
-    // 2回目以降のアクセスかチェック（sessionStorage）
+    // 2回目以降のアクセスかチェック
     const isFirstVisit = !sessionStorage.getItem('visited_top_page');
 
     if (isFirstVisit) {
-      // 初回訪問の記録を保存
       sessionStorage.setItem('visited_top_page', 'true');
 
       if (loadingVideo) {
-        // Mac・iOS向けの自動再生対策を徹底
+        // Safariに自動再生を「これなら安全」と認めさせるための最強設定一括念押し
         loadingVideo.muted = true;
         loadingVideo.playsInline = true;
-        
-        // JS側から確実に1回だけ再生させる命令
+        loadingVideo.setAttribute('muted', '');
+        loadingVideo.setAttribute('playsinline', '');
+
+        // Safariの再生ボタンを消し去るための強制play命令
         loadingVideo.play().catch((err) => {
-          console.log("自動再生ブロックを検知、強制スキップ:", err);
-          hideLoading();
+          console.log("Safariが自動再生を拒否しました。裏で強制続行します:", err);
         });
-
-        // 動画が終了（ended）したら画面を消す
-        loadingVideo.addEventListener('ended', hideLoading);
-
-        // 【安全装置】万が一のフリーズ対策（動画の長さ＋αとして4秒後に強制解除）
-        setTimeout(hideLoading, 4000);
-      } else {
-        hideLoading();
       }
+
+      // 【超重要】Safariの気まぐれに左右されない独立したタイマー
+      // 3.5秒後に確実にフェードアウトを開始します。
+      // もっと長くしたい場合は、ここの「3500」を「4000」や「4500」に増やしてください！
+      setTimeout(() => {
+        hideLoading();
+      }, 3500); 
+
     } else {
       // 2回目以降は一瞬も見せずに即座に完全消去
       loadingScreen.style.display = 'none';
@@ -161,7 +161,6 @@ window.scrollTo(0, 0);
     }
   };
 
-  // ページの読み込みタイミングに合わせて確実に発動させる
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initLoading);
   } else {
