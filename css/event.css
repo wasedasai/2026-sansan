@@ -121,6 +121,9 @@ body {
   background-image: none !important;                                              
   color: #EF5350 !important;               
   border-bottom: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   text-decoration: underline !important;           
   text-decoration-thickness: 1.5px !important;    
   text-underline-offset: 6px !important;         
@@ -130,6 +133,7 @@ body {
   opacity: 1 !important;                   
   width: auto !important;                  
   min-width: 0 !important;
+  padding: 0 !important;
 }
 
 .ais-RefinementList-labelText svg {
@@ -241,6 +245,30 @@ body {
   display: flex;
   align-items: flex-end; 
   flex-grow: 1;
+}
+.empty-results {
+  text-align: center;         /* 中央揃え */
+  padding: 80px 20px;         /* 上下に余白をもたせる */
+  color: #222222;
+  background-color: #fbfbfb;  /* 薄い背景色でエリアを区切る */
+  border-radius: 12px;        /* 角を少し丸くする */
+  grid-column: 1 / -1;        /* グリッドレイアウトの中で横幅いっぱいに広げる */
+}
+
+.empty-results svg {
+  margin-bottom: 16px;
+}
+
+.empty-results h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.empty-results p {
+  font-size: 16px;
+  color: #666666;
+  margin: 0;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   body{
@@ -370,6 +398,18 @@ body {
   margin-left: auto;
   padding-right: 0px;       
 }
+.custom-date-text {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+.date-unit {
+  font-size: 10px;
+  margin: 0 1px;
+}
+.normal-text {
+  font-size: 14px;
+}
 .ais-ClearRefinements-button {
   background: transparent !important;      
   background-image: none !important;       
@@ -471,26 +511,33 @@ body {
   display: inline-flex;
   align-items: center;
 }
-.icon-svg {
-  display: none;
+.date-7日 .custom-7 {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 12px;
+  line-height: 20px;
 }
-.date-7日 .icon-7 {
-  display: block; 
+
+/* 5. 「8日」のときは custom-8 を表示 */
+.date-8日 .custom-8 {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 12px;
+  line-height: 20px;
 }
-.date-7日 .date-text {
-  display: none; 
-}
-.hit-tag .icon-svg {
-    width: 25px;  
-    height: auto;
-  }
-.date-8日 .icon-8 {
-  display: block; 
-}
-.date-8日 .date-text {
-  display: none; 
+.small-text {
+  font-size: 7px;
 }
 .tag-不可 {
   display: none;
 }
+.empty-results {
+    padding: 50px 15px;
+  }
+  .empty-results h3 {
+    font-size: 18px;
+  }
+  .empty-results p {
+    font-size: 14px;
+  }
 }
