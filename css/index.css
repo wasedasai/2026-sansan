@@ -1133,13 +1133,16 @@ section {
 }
 .greeting-text{
     width: 100%;
-    padding: 0;
-}
-.greeting-text  img {
-display: none;
+    padding: 0 60px;
+    box-sizing: border-box;
+    flex-direction: column;
 }
 .represent-greet{
     margin: 0%;
+    margin-top: 100px;
+}
+.sp-greetbox {
+    display: block;
 }
 .news {
     width: auto;
@@ -1378,7 +1381,24 @@ display: none;
 .sns-link:hover img {
   opacity: 0.7;
 }
-
+.sp-greetbox {
+    width: 100%;
+    aspect-ratio: 3 / 2.1; 
+    overflow: hidden;
+    transform: translateY(-33px);
+}
+.greeting-text  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 5%;
+    transform: translate(0px, 0px);
+    margin-left: 0px;
+    transform: scale(1.3);
+}
+.pc-daihyo {
+    display: none;
+}
 /* ナビゲーション（4列のグリッド） */
 .footer-nav {
   display: grid;
@@ -1435,6 +1455,7 @@ display: none;
   .foot-sp {
     display: block;
   }
+  
 }
 @media (max-width: 768px) {
 p {
@@ -1766,6 +1787,7 @@ section {
 .greeting-text {
     padding: 33px 30px;
     transform: translateX(-30px);
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2125,27 +2147,6 @@ section {
     height: auto;
     box-sizing: border-box;
 }
-.catchphrase-wrapper {
-    display: flex;
-    flex-direction: column; 
-    width: 100%;
-    padding: 0 5%; 
-    box-sizing: border-box;
-    margin: 20px 0;
-}
-
-.catchphrase-wrapper .phrase-top {
-    align-self: center; 
-    text-align: left;
-    margin-right: 80px;
-}
-
-.catchphrase-wrapper .phrase-bottom {
-    align-self: center; 
-    text-align: right;
-    margin-top: 10px; 
-    margin-left: 80px;
-}
 .footer-all {
     margin-top: -130px;
 }
@@ -2263,4 +2264,24 @@ section {
   .foot-sp {
     display: block;
   }
+    }
+    @media (max-width: 450px) {
+        .catchphrase-wrapper {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    padding: 0 5%; 
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+.catchphrase-wrapper .phrase-top {
+    align-self: flex-start; 
+    text-align: left;
+}
+
+.catchphrase-wrapper .phrase-bottom {
+    align-self: flex-end; 
+    text-align: right;
+    margin-top: 10px; 
+}
     }
