@@ -309,7 +309,7 @@ header {
 .news-leftsvg {
     position: absolute;
     left: -130px;
-    bottom: -170px;
+    bottom: -150px;
     z-index: -1;
 }
 .news-container {
@@ -1133,6 +1133,7 @@ section {
 }
 .greeting-text{
     width: 100%;
+    padding: 0;
 }
 .greeting-text  img {
 display: none;
