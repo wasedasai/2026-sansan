@@ -65,7 +65,7 @@ section {
     z-index: 100; 
     width: 320px;
     height: 280px;
-    display: flex;
+    display: none;
 }
 
 .countdown-svg {
@@ -825,6 +825,9 @@ body.is-immersive .represent-greet .top-text {
 .catchphrase-wrapper {
     display: inline; 
 }
+.footer-all {
+    margin-top: -280px;
+}
 .footer {
   position: relative;
   margin: 0px;
@@ -1319,6 +1322,7 @@ display: none;
     top: 60px;
 }
 .footer-all {
+    margin-top: -190px;
     overflow: hidden;
 }
 .footer {
@@ -2137,6 +2141,9 @@ section {
     align-self: flex-end; 
     text-align: right;
     margin-top: 10px; 
+}
+.footer-all {
+    margin-top: -130px;
 }
 .footer {
   position: relative;
