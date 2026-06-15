@@ -175,13 +175,13 @@
     margin-bottom: 40px !important;
 }
 .step-desc2 {
-    
     display: flex;
     flex-direction: column; 
     gap: 15px;
 }
 .item {
     border-radius: 8px;
+    font-size: 20px;
 }
 
 .entry-period-row {
