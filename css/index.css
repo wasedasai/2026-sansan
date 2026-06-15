@@ -368,7 +368,7 @@ header {
 }
 .greeting-text {
     background-color: #EF5350;
-    padding: 65px 130px;
+    padding: 65px 80px;
     width: 100%;
     transform: translateX(-130px);
     color: #FBFBFB;
@@ -381,7 +381,7 @@ header {
 }
 .greeting-text  img {
     transform: translate(150px, 65px);
-    margin-left: -340px;
+    margin-left: -380px;
 }
 body.is-immersive {
     background-color: #EF5350;
@@ -2135,14 +2135,16 @@ section {
 }
 
 .catchphrase-wrapper .phrase-top {
-    align-self: flex-start; 
+    align-self: center; 
     text-align: left;
+    margin-right: 80px;
 }
 
 .catchphrase-wrapper .phrase-bottom {
-    align-self: flex-end; 
+    align-self: center; 
     text-align: right;
     margin-top: 10px; 
+    margin-left: 80px;
 }
 .footer-all {
     margin-top: -130px;
