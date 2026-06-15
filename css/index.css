@@ -66,6 +66,7 @@ section {
     width: 320px;
     height: 280px;
     display: none;
+    /* display: flex;に変える */
 }
 
 .countdown-svg {
