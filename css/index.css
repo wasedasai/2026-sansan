@@ -363,6 +363,9 @@ header {
 .takakisan {
     font-size: 25px;
 }
+.greeting {
+    overflow: hidden;
+}
 .represent-greet .top-text {
     margin-bottom: 56px;
 }
@@ -1782,7 +1785,8 @@ section {
     letter-spacing: 0.03em;
 }
 .represent-greet .top-text {
-    margin-bottom: 56px;
+    margin-bottom: 0px;
+    height: -20px;
 }
 .greeting-text {
     padding: 33px 30px;
@@ -2111,7 +2115,7 @@ section {
     transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
                 color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     
-    /* 右ズレ防止の要 */
+    overflow-y: hidden;
     overflow-x: hidden; 
     width: 100%;
     max-width: 100%; 
