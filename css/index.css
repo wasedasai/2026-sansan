@@ -65,7 +65,7 @@ section {
     z-index: 100; 
     width: 320px;
     height: 280px;
-    display: none;
+    display: flex;
     /* display: flex;に変える */
 }
 
